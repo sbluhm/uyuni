@@ -24,6 +24,7 @@
 %endif
 
 %define pythonX %{?default_py3:python3}%{!?default_py3:python2}
+%global __python /usr/bin/python2
 
 Name:           suseRegisterInfo
 Version:        4.2.1
