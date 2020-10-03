@@ -34,6 +34,7 @@ Name:           uyuni-base
 Version:        4.2.1
 Release:        1
 Url:            https://github.com/uyuni-project/uyuni
+Source:		noop.tar.gz
 Summary:        Uyuni Base Package
 License:        GPL-2.0-only
 Group:          System/Fhs
