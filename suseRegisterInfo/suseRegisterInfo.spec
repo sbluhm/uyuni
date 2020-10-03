@@ -24,7 +24,6 @@
 %endif
 
 %define pythonX %{?default_py3:python3}%{!?default_py3:python2}
-%global __python /usr/bin/python2
 
 Name:           suseRegisterInfo
 Version:        4.2.1
@@ -56,8 +55,14 @@ for a registration
 Summary:        Python 2 specific files for %{name}
 Group:          Productivity/Other
 Requires:       %{name} = %{version}-%{release}
+
+%if 0%{?suse_version}
 Requires:       python
 BuildRequires:  python-devel
+%else
+Requires:       python2
+BuildRequires:  python2-devel
+%endif
 
 %description -n python2-%{name}
 Python 2 specific files for %{name}.
