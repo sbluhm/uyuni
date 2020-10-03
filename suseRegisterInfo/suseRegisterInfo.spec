@@ -17,7 +17,7 @@
 
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
-%if 0%{?fedora} || 0%{?suse_version} > 1320
+%if 0%{?fedora} || 0%{?suse_version} > 1320 || 0%{?rhel}
 %global build_py3   1
 %global default_py3 1
 %endif
@@ -81,10 +81,10 @@ Python 2 specific files for %{name}.
 %install
 mkdir -p %{buildroot}/usr/lib/suseRegister/bin/
 install -m 0755 suseRegister/parse_release_info %{buildroot}/usr/lib/suseRegister/bin/parse_release_info
-make -C suseRegister install PREFIX=$RPM_BUILD_ROOT PYTHONPATH=%{python_sitelib} PYTHON_BIN=%{pythonX}
+make -C suseRegister install PREFIX=$RPM_BUILD_ROOT PYTHONPATH=%{python_sitelib}
 
 %if 0%{?build_py3}
-make -C suseRegister install PREFIX=$RPM_BUILD_ROOT PYTHONPATH=%{python3_sitelib} PYTHON_BIN=%{pythonX}
+make -C suseRegister install PREFIX=$RPM_BUILD_ROOT PYTHONPATH=%{python3_sitelib}
 %endif
 
 %if 0%{?suse_version}
