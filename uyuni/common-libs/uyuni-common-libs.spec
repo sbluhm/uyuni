@@ -55,6 +55,8 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %description
 Uyuni server and client libs
 
+%global debug_package %{nil}
+
 %if 0%{?build_py2}
 %package -n python2-%{name}
 Summary:        Uyuni server and client tools libraries for python2
