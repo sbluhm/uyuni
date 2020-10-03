@@ -16,8 +16,8 @@
 #
 
 
-%if 0%{?suse_version} > 1320
-# SLE15 builds on Python 3
+%if 0%{?suse_version} > 1320 || 0%{?rhel} >= 8
+# SLE15 ad RHEL8 build on Python 3
 %global build_py3   1
 %endif
 %define pythonX %{?build_py3:python3}%{!?build_py3:python2}
