@@ -52,7 +52,7 @@ BuildRequires:  spacewalk-backend-server
 BuildRequires:  spacewalk-backend-sql-postgresql
 BuildRequires:  suseRegisterInfo
 
-PreReq:         %fillup_prereq %insserv_prereq tftp(server) postgresql-init
+Requires(pre,preun):         %fillup_prereq %insserv_prereq tftp(server) postgresql-init
 Requires(pre):  salt
 Requires(post): user(wwwrun)
 Requires:       cobbler
