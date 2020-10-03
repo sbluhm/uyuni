@@ -32,6 +32,7 @@
 %global apache_user apache
 %global apache_group apache
 %global apache_pkg httpd
+%global m2crypto python3-m2crypto
 %endif
 
 %if 0%{?suse_version}
