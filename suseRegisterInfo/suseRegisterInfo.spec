@@ -18,7 +18,7 @@
 
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 %if 0%{?fedora} || 0%{?suse_version} > 1320 || 0%{?rhel}
-%global __python2 /usr/bin/python2 
+%global __python /usr/bin/python2 
 %global build_py3   1
 %global default_py3 1
 %endif
