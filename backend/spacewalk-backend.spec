@@ -651,8 +651,10 @@ fi
 %attr(755,root,root) %{_bindir}/mgr-sign-metadata-ctl
 %attr(755,root,root) %{_bindir}/spacewalk-diskcheck
 %attr(755,root,root) %{_prefix}/lib/susemanager/bin/mgr-update-pkg-extra-tags
+%if 0%{?suse_version}
 %{_prefix}/lib/zypp/plugins/urlresolver/spacewalk-uln-resolver
 %{_prefix}/lib/zypp/plugins/urlresolver/spacewalk-extra-http-headers
+%endif
 %{python3rhnroot}/satellite_tools/contentRemove.py*
 %{python3rhnroot}/satellite_tools/SequenceServer.py*
 %{python3rhnroot}/satellite_tools/messages.py*

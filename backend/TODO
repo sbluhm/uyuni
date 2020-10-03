@@ -1,0 +1,1 @@
+Verify if the zypper backend is required on RHEL (atm it only installs on SUSE machines)
