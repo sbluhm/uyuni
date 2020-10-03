@@ -46,7 +46,7 @@ BuildRequires:  python3-pycurl
 BuildRequires:  python-curl
 BuildRequires:  python-mock
 %endif
-BuildRequires:  pyxml
+#BuildRequires:  pyxml
 BuildRequires:  spacewalk-backend >= 1.7.38.20
 BuildRequires:  spacewalk-backend-server
 BuildRequires:  spacewalk-backend-sql-postgresql
