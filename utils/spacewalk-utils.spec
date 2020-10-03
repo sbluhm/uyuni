@@ -17,7 +17,7 @@
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 
-%if 0%{?fedora} || 0%{?rhel} >= 7
+%if 0%{?fedora} || 0%{?rhel} == 7
 %{!?pylint_check: %global pylint_check 1}
 %endif
 
@@ -124,7 +124,10 @@ make all
 make install PREFIX=$RPM_BUILD_ROOT ROOT=%{python3_sitelib} \
     MANDIR=%{_mandir}
 pushd %{buildroot}
+%if 0%{?suse_version}
 %py3_compile -O %{buildroot}%{python3_sitelib}
+%endif
+
 %fdupes %{buildroot}%{python3_sitelib}
 popd
 
