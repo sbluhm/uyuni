@@ -24,6 +24,7 @@ Summary:        Spacewalk Systems Management Application
 License:        GPL-2.0-only
 Group:          Applications/Internet
 Url:            https://github.com/uyuni-project/uyuni
+Source:		noop.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 
