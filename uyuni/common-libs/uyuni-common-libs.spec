@@ -121,6 +121,12 @@ cp $RPM_BUILD_ROOT%{python3root}/common/*.py \
 %endif
 %endif
 
+%if !(0%{?build_py2})
+rm -Rf $RPM_BUILD_ROOT%{python2root}
+%endif
+
+
+
 %if 0%{?build_py2}
 %files -n python2-%{name}
 %defattr(-,root,root)
@@ -134,5 +140,7 @@ cp $RPM_BUILD_ROOT%{python3root}/common/*.py \
 %doc LICENSE
 %{python3root}
 %endif
+
+
 
 %changelog
