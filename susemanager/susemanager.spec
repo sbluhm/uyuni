@@ -52,7 +52,10 @@ BuildRequires:  spacewalk-backend-server
 BuildRequires:  spacewalk-backend-sql-postgresql
 BuildRequires:  suseRegisterInfo
 
+%if 0%{?suse_version}
 Requires(pre,preun):         %fillup_prereq %insserv_prereq tftp(server) postgresql-init
+%endif
+
 Requires(pre):  salt
 Requires(post): user(wwwrun)
 Requires:       cobbler
@@ -198,7 +201,11 @@ popd
 
 %post
 POST_ARG=$1
+%if 0%{?suse_version}
 %{fillup_and_insserv susemanager}
+%else
+%systemd_post %{name}
+%endif
 if [ -f /etc/sysconfig/atftpd ]; then
   . /etc/sysconfig/atftpd
   if [ $ATFTPD_DIRECTORY = "/tftpboot" ]; then
@@ -244,7 +251,9 @@ if [ -z $POSTGRES_LANG ]; then
 fi
 
 %postun
+%if 0%{?suse_version}
 %{insserv_cleanup}
+%endif
 
 %files -f susemanager.lang
 %defattr(-,root,root,-)
