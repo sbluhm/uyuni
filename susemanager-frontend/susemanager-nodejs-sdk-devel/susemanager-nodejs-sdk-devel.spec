@@ -56,7 +56,7 @@ find %{buildroot}%{nodejs_sitelib} -name ".*" -delete
 %files
 %defattr(-,root,root,-)
 %dir %{nodejs_modulesdir}
-/%{nodejs_sitelib}/*
+%{nodejs_sitelib}/*
 %{_bindir}/*
 
 %changelog
