@@ -288,8 +288,8 @@ SELinux policy module supporting osa-dispatcher.
 %if 0%{?suse_version}
 cp prog.init.SUSE prog.init
 %endif
-%if 0%{?fedora} || (0%{?rhel} && 0%{?rhel} > 5)
-sed -i 's@^#!/usr/bin/python$@#!/usr/bin/python -s@' invocation.py
+%if 0%{?fedora} || (0%{?rhel} )
+sed -i 's@^#!/usr/bin/python$@#!/usr/bin/python3 -s@' invocation.py
 %endif
 
 %build
