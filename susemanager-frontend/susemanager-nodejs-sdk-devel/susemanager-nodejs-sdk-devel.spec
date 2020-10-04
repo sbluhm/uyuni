@@ -30,8 +30,14 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  fdupes
 BuildRequires:  nodejs-packaging
 
+%{!?nodejs_sitelib:%define nodejs_sitelib %{_prefix}/lib/node_modules}
+%{!?nodejs_modulesdir:%define nodejs_modulesdir %{nodejs_sitelib}}
+
+
 %description
 This package contains Node.js software needed by SUSE Manager at build time.
+
+%global debug_package %{nil}
 
 %prep
 %setup -q -n uyuni-%{name}-%{version}-1
