@@ -114,9 +114,14 @@ Summary:        Basic code that provides Spacewalk Server functionality
 Group:          System/Management
 Requires(pre):  %{name}-sql = %{version}-%{release}
 Requires:       %{name}-sql = %{version}-%{release}
+%if 0%{?suse_version}
 Requires:       python3-python-pam
-Requires:       spacewalk-config
 Requires:       apache2-mod_wsgi-python3
+%else
+Requires:       python3-pam
+Requires:       python3-mod_wsgi
+%endif
+Requires:       spacewalk-config
 
 # cobbler-web is known to break our configuration
 Conflicts:      cobbler-web
