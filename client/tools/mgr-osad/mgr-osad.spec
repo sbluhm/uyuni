@@ -284,7 +284,7 @@ SELinux policy module supporting osa-dispatcher.
 %endif
 
 %prep
-%setup -q -n uyuni-%{name}-%{version}-1
+%setup -q -n uyuni-%{name}-%{version}-1/client/tools/mgr-osad
 %if 0%{?suse_version}
 cp prog.init.SUSE prog.init
 %endif
