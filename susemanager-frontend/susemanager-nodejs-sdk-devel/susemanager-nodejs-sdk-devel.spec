@@ -23,7 +23,7 @@ Summary:        Node.js software used by SUSE Manager at build time
 Url:            https://www.suse.com/products/suse-manager
 Group:          Development/Languages/Other
 
-Source0:        susemanager-nodejs-sdk-devel.tar.gz
+Source0:        https://github.com/uyuni-project/uyuni/archive/%{name}-%{version}-1.tar.gz
 Source1:        susemanager-nodejs-modules.tar.gz
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
@@ -34,7 +34,7 @@ BuildRequires:  nodejs-packaging
 This package contains Node.js software needed by SUSE Manager at build time.
 
 %prep
-%setup -q
+%setup -q -n uyuni-%{name}-%{version}-1
 tar xfv %{S:1}
 
 %build
