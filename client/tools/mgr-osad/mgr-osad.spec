@@ -38,6 +38,7 @@
 %if 0%{?fedora} || 0%{?suse_version} > 1320 || 0%{?rhel} >= 8
 %global build_py3   1
 %global default_py3 1
+%global __python /usr/bin/python2
 %endif
 
 %if ( 0%{?fedora} && 0%{?fedora} < 28 ) || ( 0%{?rhel} && 0%{?rhel} < 8 ) || 0%{?suse_version}
@@ -55,7 +56,7 @@ Provides:       %{oldname} = %{oldversion}
 Obsoletes:      %{oldname} < %{oldversion}
 Release:        1%{?dist}
 Url:            https://github.com/uyuni-project/uyuni
-Source0:        https://github.com/spacewalkproject/spacewalk/archive/%{name}-%{version}.tar.gz
+Source0:        https://github.com/uyuni-project/uyuni/archive/%{name}-%{version}-1.tar.gz
 Source1:        %{name}-rpmlintrc
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %if 0%{?fedora} || 0%{?rhel} || 0%{?suse_version} >= 1210
@@ -117,7 +118,6 @@ Obsoletes:      python-%{name} < %{oldversion}
 Provides:       python2-%{oldname} = %{oldversion}
 Obsoletes:      python2-%{oldname} < %{oldversion}
 Requires:       %{name} = %{version}-%{release}
-Requires:       python
 Requires:       python-jabberpy
 Requires:       python2-mgr-osa-common = %{version}
 Requires:       python2-rhn-client-tools >= 2.8.4
@@ -126,8 +126,13 @@ Requires:       python2-uyuni-common-libs
 %if 0%{?rhel} && 0%{?rhel} <= 5
 Requires:       python-hashlib
 %endif
+%if 0%{?rhel} >= 8
+BuildRequires:  python2-devel
+Requires:       python2
+%else
 BuildRequires:  python-devel
-
+Requires:       python
+%endif
 %description -n python2-%{name}
 Python 2 specific files for %{name}
 %endif
@@ -217,7 +222,7 @@ Summary:        OSA dispatcher
 Group:          System Environment/Daemons
 Obsoletes:      python2-osa-dispatcher < %{oldversion}
 Provides:       python2-osa-dispatcher = %{oldversion}
-%if 0%{?fedora} >= 28
+%if 0%{?fedora} >= 28 || 0%{?rhel} >= 8
 BuildRequires:  python2-devel
 Requires:       python2
 %else
@@ -279,7 +284,7 @@ SELinux policy module supporting osa-dispatcher.
 %endif
 
 %prep
-%setup -q
+%setup -q -n uyuni-%{name}-%{version}-%{release}
 %if 0%{?suse_version}
 cp prog.init.SUSE prog.init
 %endif
