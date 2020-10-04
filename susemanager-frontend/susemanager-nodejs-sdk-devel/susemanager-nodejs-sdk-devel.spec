@@ -45,6 +45,7 @@ tar xfv %{S:1}
 
 %build
 find . -type f -exec sed -i -e 's/#!\/usr\/bin\/env node/#!\/usr\/bin\/node/g' {} \;
+npm install @babel/runtime@">=7.7.2 <8"
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}
