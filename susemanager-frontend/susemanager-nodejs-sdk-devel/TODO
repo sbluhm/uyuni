@@ -1,1 +1,2 @@
 Identify where the tar.gz files come from or how they are auto-generated
+Fix the automatic rpmbuild translation of bundles to Provides. Or remove the generation of "Requires"
