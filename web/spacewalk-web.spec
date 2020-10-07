@@ -199,8 +199,11 @@ ln -sf %{nodejs_sitelib} .
 BUILD_VALIDATION=false node build.js
 popd
 %endif
-cd ..
-%{name}-%{version}/setup.sh
+
+set -euxo pipefail
+(cd html/src; yarn install --frozen-lockfile)
+(cd html/src; yarn build:novalidate)
+echo ""
 sed -i -r "s/^(web.buildtimestamp *= *)_OBS_BUILD_TIMESTAMP_$/\1$(date +'%%Y%%m%%d%%H%%M%%S')/" conf/rhn_web.conf
 
 %install
