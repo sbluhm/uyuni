@@ -45,6 +45,7 @@ BuildArch:      noarch
 Requires(pre):  uyuni-base-common
 BuildRequires:  uyuni-base-common
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:	yarn
 %if 0%{?suse_version}
 BuildRequires:  apache2
 BuildRequires:  nodejs-packaging
