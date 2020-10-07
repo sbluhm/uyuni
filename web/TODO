@@ -1,1 +1,2 @@
 Fix www root for RHEL
+run required scripts without susemanager-nodejs-sdk-devel

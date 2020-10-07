@@ -187,6 +187,8 @@ database.
 
 %prep
 %setup -q
+susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
+web/setup.sh
 
 %build
 make -f Makefile.spacewalk-web PERLARGS="INSTALLDIRS=vendor" %{?_smp_mflags}
