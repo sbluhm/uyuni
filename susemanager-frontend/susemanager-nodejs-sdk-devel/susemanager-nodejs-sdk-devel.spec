@@ -29,6 +29,8 @@ Source1:        susemanager-nodejs-modules.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  fdupes
 BuildRequires:  nodejs-packaging
+
+# Converted bundle(nodejs-*) to npm(*) to show that this is included. This messy package is required for build only.
 Provides:      npm(acorn) = 5.7.4
 Provides:      npm(ajv) = 6.12.0
 Provides:      npm(ajv) = 6.12.4
@@ -145,6 +147,23 @@ Provides:      npm(whatwg-url) = 7.1.0
 Provides:      npm(wrap-ansi) = 5.1.0
 Provides:      npm(yallist) = 4.0.0
 Provides:      npm(yargs) = 13.3.2
+
+
+# Manually adding versions as rpmbuild did not seem to pick those up as bundles:
+Provides:      npm(nodejs-types-babel__core) = 7.1.3
+Provides:      npm(nodejs-types-babel__generator) = 7.6.1
+Provides:      npm(nodejs-types-babel__template) = 7.0.2
+Provides:      npm(nodejs-types-babel__traverse) = 7.0.8
+Provides:      npm(nodejs-types-domhandler) = 2.4.1
+Provides:      npm(nodejs-types-istanbul-lib-coverage) = 2.0.1
+Provides:      npm(nodejs-types-istanbul-lib-report) = 1.1.1
+Provides:      npm(nodejs-types-istanbul-reports) = 1.1.1
+Provides:      npm(nodejs-types-json-schema) = 7.0.6
+Provides:      npm(nodejs-types-parse-json) = 4.0.0
+Provides:      npm(nodejs-types-stack-utils) = 1.0.1
+Provides:      npm(nodejs-types-yargs) = 13.0.4
+Provides:      npm(nodejs-types-yargs-parser) = 13.1.0
+
 
 %{!?nodejs_sitelib:%define nodejs_sitelib %{_prefix}/lib/node_modules}
 %{!?nodejs_modulesdir:%define nodejs_modulesdir %{nodejs_sitelib}}
