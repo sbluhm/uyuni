@@ -53,7 +53,7 @@ BuildRequires:  susemanager-nodejs-sdk-devel
 BuildRequires:  nodejs
 
 %endif
-BuildRequires:  susemanager-nodejs-sdk-devel
+#BuildRequires:  susemanager-nodejs-sdk-devel
 
 %description
 This package contains the code for the Spacewalk Web Site.
