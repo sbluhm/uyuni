@@ -190,6 +190,10 @@ database.
 %prep
 %setup -q
 #susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
+set -euxo pipefail
+(cd html/src; yarn install --frozen-lockfile)
+(cd html/src; yarn build:novalidate)
+echo ""
 
 %build
 make -f Makefile.spacewalk-web PERLARGS="INSTALLDIRS=vendor" %{?_smp_mflags}
@@ -200,10 +204,6 @@ BUILD_VALIDATION=false node build.js
 popd
 %endif
 
-set -euxo pipefail
-(cd html/src; yarn install --frozen-lockfile)
-(cd html/src; yarn build:novalidate)
-echo ""
 sed -i -r "s/^(web.buildtimestamp *= *)_OBS_BUILD_TIMESTAMP_$/\1$(date +'%%Y%%m%%d%%H%%M%%S')/" conf/rhn_web.conf
 
 %install
