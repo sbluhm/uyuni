@@ -39,7 +39,7 @@ Group:          Applications/Internet
 Version:        4.2.2
 Release:        1%{?dist}
 Url:            https://github.com/uyuni-project/uyuni
-Source0:        https://github.com/sbluhm/uyuni/archive/%{name}-%{version}-%{release}.tar.gz
+Source0:        https://github.com/sbluhm/uyuni/archive/%{name}-%{version}-1.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 Requires(pre):  uyuni-base-common
