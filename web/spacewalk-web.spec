@@ -189,7 +189,7 @@ database.
 
 %prep
 %setup -q
-susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
+#susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
 web/setup.sh
 
 %build
