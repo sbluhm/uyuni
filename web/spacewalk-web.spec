@@ -199,7 +199,8 @@ ln -sf %{nodejs_sitelib} .
 BUILD_VALIDATION=false node build.js
 popd
 %endif
-./setup.sh
+cd ..
+%{name}-%{version}/setup.sh
 sed -i -r "s/^(web.buildtimestamp *= *)_OBS_BUILD_TIMESTAMP_$/\1$(date +'%%Y%%m%%d%%H%%M%%S')/" conf/rhn_web.conf
 
 %install
