@@ -150,6 +150,19 @@ Provides:      npm(yargs) = 13.3.2
 
 
 # Manually adding versions as rpmbuild did not seem to pick those up as bundles:
+
+Provides:      npm(nodejs-emotion-cache) = 10.0.27
+Provides:      npm(nodejs-emotion-core) = 10.0.27
+Provides:      npm(nodejs-emotion-css) = 10.0.27
+Provides:      npm(nodejs-emotion-hash) = 0.7.4
+Provides:      npm(nodejs-emotion-memoize) = 0.7.4
+Provides:      npm(nodejs-emotion-serialize) = 0.11.15
+Provides:      npm(nodejs-emotion-sheet) = 0.9.4
+Provides:      npm(nodejs-emotion-stylis) = 0.8.5
+Provides:      npm(nodejs-emotion-unitless) = 0.7.5
+Provides:      npm(nodejs-emotion-utils) = 0.11.3
+Provides:      npm(nodejs-emotion-weak-memoize) = 0.2.5
+
 Provides:      npm(nodejs-types-babel__core) = 7.1.3
 Provides:      npm(nodejs-types-babel__generator) = 7.6.1
 Provides:      npm(nodejs-types-babel__template) = 7.0.2
@@ -163,6 +176,7 @@ Provides:      npm(nodejs-types-parse-json) = 4.0.0
 Provides:      npm(nodejs-types-stack-utils) = 1.0.1
 Provides:      npm(nodejs-types-yargs) = 13.0.4
 Provides:      npm(nodejs-types-yargs-parser) = 13.1.0
+
 
 
 %{!?nodejs_sitelib:%define nodejs_sitelib %{_prefix}/lib/node_modules}
