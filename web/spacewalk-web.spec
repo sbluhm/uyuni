@@ -22,7 +22,11 @@
 %define apache_user wwwrun
 %define apache_group www
 %else
+%if 0%{?rhel}
+%define www_path /srv/
+%else
 %define www_path %{_var}
+%endif
 %define apache_user apache
 %define apache_group apache
 %endif
