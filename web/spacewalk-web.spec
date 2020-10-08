@@ -188,7 +188,7 @@ database.
 
 
 %prep
-%setup -q
+%setup -q uyuni-%{name}-%{version}-1
 #susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
 #set -euxo pipefail
 #(cd html/src; yarn install --frozen-lockfile)
