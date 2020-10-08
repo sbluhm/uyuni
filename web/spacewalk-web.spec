@@ -194,11 +194,14 @@ ls
 pwd
 ls
 #susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
-cd html/src; yarn install --frozen-lockfile
-cd html/src; yarn build:novalidate
+#cd html/src; yarn install --frozen-lockfile
+#cd html/src; yarn build:novalidate
 
 
 %build
+cd html/src; yarn install --frozen-lockfile
+cd html/src; yarn build:novalidate
+
 make -f Makefile.spacewalk-web PERLARGS="INSTALLDIRS=vendor" %{?_smp_mflags}
 %if 0%{?suse_version}
 pushd html/src
