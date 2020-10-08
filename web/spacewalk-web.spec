@@ -190,8 +190,7 @@ database.
 %prep
 pwd
 ls
-%setup -q -n uyuni-%{name}-%{version}-1
-cd web
+%setup -q
 pwd
 ls
 #susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
