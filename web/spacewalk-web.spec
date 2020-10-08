@@ -194,10 +194,9 @@ ls
 pwd
 ls
 #susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
-set -euxo pipefail
-(cd html/src; yarn install --frozen-lockfile)
-(cd html/src; yarn build:novalidate)
-echo ""
+cd html/src; yarn install --frozen-lockfile
+cd html/src; yarn build:novalidate
+
 
 %build
 make -f Makefile.spacewalk-web PERLARGS="INSTALLDIRS=vendor" %{?_smp_mflags}
