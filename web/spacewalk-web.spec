@@ -188,7 +188,11 @@ database.
 
 
 %prep
+pwd
+ls
 %setup -q -n uyuni-%{name}-%{version}-1/web
+pwd
+ls
 #susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
 set -euxo pipefail
 (cd html/src; yarn install --frozen-lockfile)
