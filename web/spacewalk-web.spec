@@ -188,27 +188,18 @@ database.
 
 
 %prep
-pwd
-ls
 %setup -q
-pwd
-ls
-#susemanager-frontend/susemanager-nodejs-sdk-devel/setup.sh
-#cd html/src; yarn install --frozen-lockfile
-#cd html/src; yarn build:novalidate
 
 
 %build
-cd html/src; yarn install --frozen-lockfile
-cd html/src; yarn build:novalidate
 
 make -f Makefile.spacewalk-web PERLARGS="INSTALLDIRS=vendor" %{?_smp_mflags}
-%if 0%{?suse_version}
+#%if 0%{?suse_version}
 pushd html/src
 ln -sf %{nodejs_sitelib} .
 BUILD_VALIDATION=false node build.js
 popd
-%endif
+#%endif
 
 sed -i -r "s/^(web.buildtimestamp *= *)_OBS_BUILD_TIMESTAMP_$/\1$(date +'%%Y%%m%%d%%H%%M%%S')/" conf/rhn_web.conf
 
