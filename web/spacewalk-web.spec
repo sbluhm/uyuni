@@ -32,9 +32,6 @@
 %endif
 %{!?fedora: %global sbinpath /sbin}%{?fedora: %global sbinpath %{_sbindir}}
 
-%{!?nodejs_sitelib:%define nodejs_sitelib %{_prefix}/lib/node_modules}
-%{!?nodejs_modulesdir:%define nodejs_modulesdir %{nodejs_sitelib}}
-
 Name:           spacewalk-web
 Summary:        Spacewalk Web site - Perl modules
 License:        GPL-2.0-only
