@@ -1,1 +1,2 @@
 Fix www root for RHEL
+Added spacewalk-web-git-94.dc7c212.tar.gz as workaround. this must be fixed with proper versions

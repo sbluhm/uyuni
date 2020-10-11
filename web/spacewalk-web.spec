@@ -35,7 +35,8 @@ Group:          Applications/Internet
 Version:        4.2.2
 Release:        1%{?dist}
 Url:            https://github.com/uyuni-project/uyuni
-Source0:        https://github.com/sbluhm/uyuni/archive/%{name}-%{version}-1.tar.gz
+Source0:        spacewalk-web-git-94.dc7c212.tar.gz
+#https://github.com/sbluhm/uyuni/archive/%{name}-%{version}-1.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 Requires(pre):  uyuni-base-common
@@ -182,7 +183,7 @@ database.
 
 
 %prep
-%setup -q
+%setup -q -n spacewalk-web-git-94.dc7c212
 
 %build
 make -f Makefile.spacewalk-web PERLARGS="INSTALLDIRS=vendor" %{?_smp_mflags}
