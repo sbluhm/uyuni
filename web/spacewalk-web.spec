@@ -22,11 +22,7 @@
 %define apache_user wwwrun
 %define apache_group www
 %else
-%if 0%{?rhel}
-%define www_path /srv/
-%else
 %define www_path %{_var}
-%endif
 %define apache_user apache
 %define apache_group apache
 %endif
@@ -45,15 +41,13 @@ BuildArch:      noarch
 Requires(pre):  uyuni-base-common
 BuildRequires:  uyuni-base-common
 BuildRequires:  perl(ExtUtils::MakeMaker)
-BuildRequires:	yarn
+BuildRequires:  susemanager-nodejs-sdk-devel
 %if 0%{?suse_version}
 BuildRequires:  apache2
 BuildRequires:  nodejs-packaging
-BuildRequires:  susemanager-nodejs-sdk-devel
 BuildRequires:  nodejs
 
 %endif
-#BuildRequires:  susemanager-nodejs-sdk-devel
 
 %description
 This package contains the code for the Spacewalk Web Site.
@@ -190,21 +184,17 @@ database.
 %prep
 %setup -q
 
-
 %build
-
 make -f Makefile.spacewalk-web PERLARGS="INSTALLDIRS=vendor" %{?_smp_mflags}
-#%if 0%{?suse_version}
 pushd html/src
 ln -sf %{nodejs_sitelib} .
 BUILD_VALIDATION=false node build.js
 popd
-#%endif
-
 sed -i -r "s/^(web.buildtimestamp *= *)_OBS_BUILD_TIMESTAMP_$/\1$(date +'%%Y%%m%%d%%H%%M%%S')/" conf/rhn_web.conf
 
 %install
 make -C modules install DESTDIR=$RPM_BUILD_ROOT PERLARGS="INSTALLDIRS=vendor" %{?_smp_mflags}
+sed -i s#/srv/www/htdocs#/%{www_path}/www/htdocs# html/Makefile
 make -C html install PREFIX=$RPM_BUILD_ROOT
 make -C po install PREFIX=$RPM_BUILD_ROOT
 
@@ -221,13 +211,13 @@ install -m 644 conf/rhn_web.conf $RPM_BUILD_ROOT%{_prefix}/share/rhn/config-defa
 install -m 644 conf/rhn_dobby.conf $RPM_BUILD_ROOT%{_prefix}/share/rhn/config-defaults
 install -m 755 modules/dobby/scripts/check-database-space-usage.sh $RPM_BUILD_ROOT/%{_sysconfdir}/cron.daily/check-database-space-usage.sh
 
-%{__mkdir_p} %{buildroot}/srv/www/htdocs/javascript/manager
-cp -r html/src/dist/javascript/manager %{buildroot}/srv/www/htdocs/javascript
+%{__mkdir_p} %{buildroot}/%{www_path}/www/htdocs/javascript/manager
+cp -r html/src/dist/javascript/manager %{buildroot}/%{www_path}/www/htdocs/javascript
 
-%{__mkdir_p} %{buildroot}/srv/www/htdocs/vendors
-cp html/src/dist/vendors/vendors.bundle.js %{buildroot}/srv/www/htdocs/vendors/vendors.bundle.js
-cp html/src/dist/vendors/vendors.bundle.js.map %{buildroot}/srv/www/htdocs/vendors/vendors.bundle.js.map
-cp html/src/dist/vendors/vendors.bundle.js.LICENSE %{buildroot}/srv/www/htdocs/vendors/vendors.bundle.js.LICENSE
+%{__mkdir_p} %{buildroot}/%{www_path}/www/htdocs/vendors
+cp html/src/dist/vendors/vendors.bundle.js %{buildroot}/%{www_path}/www/htdocs/vendors/vendors.bundle.js
+cp html/src/dist/vendors/vendors.bundle.js.map %{buildroot}/%{www_path}/www/htdocs/vendors/vendors.bundle.js.map
+cp html/src/dist/vendors/vendors.bundle.js.LICENSE %{buildroot}/%{www_path}/www/htdocs/vendors/vendors.bundle.js.LICENSE
 
 %find_lang spacewalk-web
 
