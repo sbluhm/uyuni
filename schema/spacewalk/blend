@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
 # published by the Free Software Foundation; either version 3 of the
@@ -287,7 +287,7 @@ class DepTab:
 
     def findaliases(self):
         self.aliases = {}
-        for s,e in self.index.items():
+        for s,e in list(self.index.items()):
             if e.hits == 0:
                 self.aliases[s] = e
         return self
@@ -447,7 +447,7 @@ class DepList:
             while len(self.stack):
                 try:
                     top = self.top()
-                    ref = top[1].next()
+                    ref = next(top[1])
                     refd = self.find(ref)
                     if refd is None:
                         info = top[0][1].info
