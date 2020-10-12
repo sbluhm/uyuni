@@ -26,7 +26,7 @@ Group:          Applications/Internet
 
 Version:        4.2.2
 Release:        1%{?dist}
-Source0:        %{name}-%{version}.tar.gz
+Source0:	https://github.com/uyuni-project/uyuni/archive/%{name}-%{version}-1.tar.gz
 Source1:        %{name}-rpmlintrc
 
 Url:            https://github.com/uyuni-project/uyuni
@@ -35,7 +35,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 BuildRequires:  /usr/bin/pod2man
 BuildRequires:  fdupes
-BuildRequires:  python
+BuildRequires:  python3
 BuildRequires:  perl(Digest::SHA)
 Requires:       %{sbinpath}/restorecon
 
@@ -63,7 +63,7 @@ Provides schema-source-sanity-check.pl script for external usage.
 
 %prep
 
-%setup -q
+%setup -q -n uyuni-%{name}-%{version}-1/schema/spacewalk/
 
 %build
 find . -name '*.91' | while read i ; do mv $i ${i%%.91} ; done
