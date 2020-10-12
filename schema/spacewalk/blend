@@ -502,24 +502,24 @@ def generate(path, reader, writer, output, directories):
     reader.read(ds)
     sorted = reader.sort()
     overrides = reader.overrides
-    print '\nOVERRIDES (%d):' % len(overrides)
+    print ('\nOVERRIDES (%d):' % len(overrides))
     for entry in overrides:
-        print '\t"%s" overridden by "%s"' % entry
+        print ('\t"%s" overridden by "%s"' % entry)
     unused = \
         [x for x in reader.deptab.content if x.hits == 0]
-    print '\nUNUSED RULES (%d):' % len(unused)
+    print ('\nUNUSED RULES (%d):' % len(unused))
     for entry in unused:
         if entry.hits == 0:
-            print '\t%s @%s' % (entry.subject,entry.info)
+            print ('\t%s @%s' % (entry.subject,entry.info))
     unfound = reader.deplist.unfound
-    print '\nUNFOUND (rule) REFERENCES (%d):' % len(unfound)
+    print ('\nUNFOUND (rule) REFERENCES (%d):' % len(unfound))
     for unf in unfound:
-        print '\t"%s" @%s' % unf
+        print ('\t"%s" @%s' % unf)
     if verbose:
         ln = 1
-        print '\n\nFILES (%d):' % len(sorted)
+        print ('\n\nFILES (%d):' % len(sorted))
         for p in sorted:
-            print '\t%d %s' % (ln, p)
+            print ('\t%d %s' % (ln, p))
             ln += 1
     writer.write(sorted, out)
     out.close()
@@ -543,7 +543,7 @@ def usage():
     s.append('      The output file.  Default: main.sql')
     s.append('  -d, --directory')
     s.append('      The working directory to process.')
-    print '\n'.join(s)
+    print ('\n'.join(s))
 
 def main(argv):
     path = '.'
@@ -586,8 +586,8 @@ def main(argv):
         writer.aggregated = aggregated
         errnum = generate(path, reader, writer, output, args)
         sys.exit(errnum)
-    except GetoptError, e:
-        print e
+    except GetoptError as e:
+        print (e)
         usage()
         sys.exit(2)
 
