@@ -5,8 +5,7 @@
 TOP     = ..
 
 # Specific stuff
-#SUBDIR		= susemanager
-SUBDIR         = src
+SUBDIR		= susemanager
 
 SPACEWALK_FILES		= __init__ \
 			mgr_clean_old_patchnames \
@@ -28,7 +27,6 @@ SCRIPTS  = mgr-clean-old-patchnames \
 SUMA_DATA_FILES = mgr_bootstrap_data
 
 PYSUMA_DATA_FILES       = $(addsuffix .py,$(SUMA_DATA_FILES))
-PYCSUMA_DATA_FILES      = $(addsuffix .pyc,$(SUMA_DATA_FILES))
 
 SUMA_INSTALL_DATA_FILES += $(PYSUMA_DATA_FILES) $(PYCSUMA_DATA_FILES)
 

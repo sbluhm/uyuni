@@ -93,6 +93,8 @@ Requires:       snapper
 A collection of scripts for managing SUSE Manager's initial
 setup tasks, re-installation, upgrades and managing.
 
+%global debug_package %{nil}
+
 %package tools
 Summary:        SUSE Manager Tools
 Group:          Productivity/Other
@@ -307,6 +309,20 @@ fi
 %{pythonsmroot}/susemanager/helpers.py*
 %{pythonsmroot}/susemanager/package_helper.py*
 %{pythonsmroot}/susemanager/mgr_sync
+%{pythonsmroot}/susemanager/__pycache__/__init__.cpython-36.opt-1.pyc
+%{pythonsmroot}/susemanager/__pycache__/__init__.cpython-36.pyc
+%{pythonsmroot}/susemanager/__pycache__/authenticator.cpython-36.opt-1.pyc
+%{pythonsmroot}/susemanager/__pycache__/authenticator.cpython-36.pyc
+%{pythonsmroot}/susemanager/__pycache__/errata_helper.cpython-36.opt-1.pyc
+%{pythonsmroot}/susemanager/__pycache__/errata_helper.cpython-36.pyc
+%{pythonsmroot}/susemanager/__pycache__/helpers.cpython-36.opt-1.pyc
+%{pythonsmroot}/susemanager/__pycache__/helpers.cpython-36.pyc
+%{pythonsmroot}/susemanager/__pycache__/mgr_clean_old_patchnames.cpython-36.opt-1.pyc
+%{pythonsmroot}/susemanager/__pycache__/mgr_clean_old_patchnames.cpython-36.pyc
+%{pythonsmroot}/susemanager/__pycache__/mgr_delete_patch.cpython-36.opt-1.pyc
+%{pythonsmroot}/susemanager/__pycache__/mgr_delete_patch.cpython-36.pyc
+%{pythonsmroot}/susemanager/__pycache__/package_helper.cpython-36.opt-1.pyc
+%{pythonsmroot}/susemanager/__pycache__/package_helper.cpython-36.pyc
 %{_datadir}/susemanager/mgr_bootstrap_data.py*
 %{_mandir}/man8/mgr-sync.8*
 /srv/www/htdocs/pub/repositories/empty/repodata/*.xml*

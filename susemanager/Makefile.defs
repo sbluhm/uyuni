@@ -29,11 +29,8 @@ INSTALL_DIR	= $(INSTALL) -m 755 -d
 
 # This is for the subdir part
 PYFILES		= $(addsuffix .py,$(FILES))
-PYCFILES	= $(addsuffix .pyc,$(FILES))
-PYOFILES	= $(addsuffix .pyo,$(FILES))
 
 SPACEWALK_PYFILES		= $(addsuffix .py,$(SPACEWALK_FILES))
-SPACEWALK_PYCFILES	= $(addsuffix .pyc,$(SPACEWALK_FILES))
 SPACEWALK_DEST	?= $(SPACEWALK_ROOT)/$(SUBDIR)
 
 # what do we need to install and where
