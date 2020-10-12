@@ -57,7 +57,11 @@ Requires(pre,preun):         %fillup_prereq %insserv_prereq tftp(server) postgre
 %endif
 
 Requires(pre):  salt
+%if 0%{?suse_version}
 Requires(post): user(wwwrun)
+%else
+Requires(post): user(apache)
+%endif
 Requires:       cobbler
 Requires:       openslp-server
 Requires:       spacewalk-admin
