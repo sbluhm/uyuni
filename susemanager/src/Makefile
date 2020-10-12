@@ -5,7 +5,8 @@
 TOP     = ..
 
 # Specific stuff
-SUBDIR		= susemanager
+#SUBDIR		= susemanager
+SUBDIR         = src
 
 SPACEWALK_FILES		= __init__ \
 			mgr_clean_old_patchnames \
