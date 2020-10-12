@@ -350,7 +350,7 @@ class Reader:
         for n in os.walk(d):
             for f in n[2]:
                 files.append((f, n[0]))
-        files = sorted(files, self.fsort)
+        files = sorted(files, key=self.fsort)
         return files
 
     def fsort(self, a, b):
