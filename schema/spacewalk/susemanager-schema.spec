@@ -26,7 +26,7 @@ Group:          Applications/Internet
 
 Version:        4.2.2
 Release:        1%{?dist}
-Source0:	https://github.com/uyuni-project/uyuni/archive/%{name}-%{version}-1.tar.gz
+Source0:	https://github.com/sbluhm/uyuni/archive/%{name}-%{version}-1.tar.gz
 Source1:        %{name}-rpmlintrc
 
 Url:            https://github.com/uyuni-project/uyuni
