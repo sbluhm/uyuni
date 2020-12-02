@@ -35,7 +35,7 @@ URL:            https://github.com/uyuni-project/uyuni
 Source0:        %{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  nutch-core
-BuildRequires:  python
+BuildRequires:  python2
 BuildRequires:  release-notes-susemanager >= 1.2
 BuildRequires:  susemanager-jsp_en >= 1.2
 BuildRequires:  xerces-j2
