@@ -623,8 +623,6 @@ mv $RPM_BUILD_ROOT%{jardir}/jboss-loggingjboss-logging.jar $RPM_BUILD_ROOT%{jard
 mv $RPM_BUILD_ROOT%{jardir}/jafjakarta.activation.jar $RPM_BUILD_ROOT%{jardir}/jaf.jar
 mv $RPM_BUILD_ROOT%{jardir}/javamailjavax.mail.jar $RPM_BUILD_ROOT%{jardir}/javamail.jar
 mv $RPM_BUILD_ROOT%{jardir}/jta.jar $RPM_BUILD_ROOT%{jardir}/geronimo-jta-1.1-api.jar
-ln -nsf /usr/share/java/javamail/javax.mail.jar $RPM_BUILD_ROOT%{jardir}/javamail.jar
-ln -nsf /usr/share/java/javamail/javax.mail.jar $RPM_BUILD_ROOT$TASKOMATIC_BUILD_DIR/javamail.jar
 # Removing unused symlinks.
 rm -rf $RPM_BUILD_ROOT%{jardir}/jafjakarta.activation-api.jar
 rm -rf $RPM_BUILD_ROOT%{jardir}/javamaildsn.jar
