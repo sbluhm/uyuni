@@ -65,7 +65,7 @@ Group:          Applications/Internet
 Version:        4.2.5
 Release:        1%{?dist}
 Url:            https://github.com/uyuni-project/uyuni
-Source0:        https://github.com/uyuni-project/uyuni/archive/%{name}-%{version}-1.tar.gz
+Source0:        https://github.com/uyuni-project/uyuni/archive/master.tar.gz
 Source1:        %{name}-rpmlintrc
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
@@ -397,7 +397,7 @@ BuildRequires:  systemd-rpm-macros
 This package contains the Java version of taskomatic.
 
 %prep
-%setup -q -n uyuni-%{name}-%{version}-1/java
+%setup -q -n uyuni-master/java
 
 %if 0%{?fedora}
 %define skip_xliff  1
