@@ -29,7 +29,7 @@
 %global rhnroot %{_datadir}/rhn
 %global rhnconf %{_sysconfdir}/sysconfig/rhn
 %global client_caps_dir %{rhnconf}/clientCaps.d
-%global __python /usr/bin/python2 
+#%global __python /usr/bin/python2 
 
 %if 0%{?fedora} || 0%{?suse_version} > 1320 || 0%{?rhel} >= 8
 %global build_py3   1
