@@ -29,11 +29,11 @@
 %global rhnroot %{_datadir}/rhn
 %global rhnconf %{_sysconfdir}/sysconfig/rhn
 %global client_caps_dir %{rhnconf}/clientCaps.d
-%global __python /usr/bin/python2 
 
 %if 0%{?fedora} || 0%{?suse_version} > 1320 || 0%{?rhel} >= 8
 %global build_py3   1
 %global default_py3 1
+%global __python /usr/bin/python2 
 %endif
 
 %if ( 0%{?fedora} && 0%{?fedora} < 28 ) || ( 0%{?rhel} && 0%{?rhel} < 8 ) || 0%{?suse_version} || 0%{?ubuntu} || 0%{?debian}
@@ -95,7 +95,7 @@ Requires:       %{pythonX}-%{name} = %{version}-%{release}
 %if 0%{?suse_version}
 # provide rhn directories and no selinux on suse
 BuildRequires:  spacewalk-client-tools
-%if %{suse_version} >= 1110
+%if %{?suse_version} >= 1110
 # Only on SLES11
 Requires:       python-selinux
 %endif
@@ -126,7 +126,7 @@ Obsoletes:      python-%{name} < %{oldversion}
 Provides:       python2-%{oldname} = %{oldversion}
 Obsoletes:      python2-%{oldname} < %{oldversion}
 Requires:       %{name} = %{version}-%{release}
-%if 0%{suse_version} || 0%{?rhel} >= 8
+%if 0%{?suse_version} || 0%{?rhel} >= 8
 Requires:       python2
 %else
 Requires:       python
@@ -137,7 +137,7 @@ Requires:       python2-uyuni-common-libs
 %if 0%{?rhel} && 0%{?rhel} <= 5
 Requires:       python-hashlib
 %endif
-%if 0%{suse_version} || 0%{?rhel} >= 8
+%if 0%{?suse_version} || 0%{?rhel} >= 8
 BuildRequires:  python2
 %else
 BuildRequires:  python
