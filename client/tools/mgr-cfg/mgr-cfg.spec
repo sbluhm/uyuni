@@ -82,7 +82,7 @@ Packager:   Uyuni Project <uyuni-devel@opensuse.org>
 Group:          Applications/System
 %endif
 Url:            https://github.com/uyuni-project/uyuni
-Source0:        https://github.com/spacewalkproject/spacewalk/archive/%{name}-%{version}.tar.gz
+Source0:        https://github.com/uyuni-project/uyuni/archive/%{name}-%{version}-1.tar.gz
 Source1:        %{name}-rpmlintrc
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %if 0%{?fedora} || 0%{?rhel} || 0%{?suse_version} >= 1210
@@ -315,7 +315,7 @@ Python 3 specific files for python2-%{name}-actions.
 %endif
 
 %prep
-%setup -q
+%setup -q -n uyuni-%{name}-%{version}-1/client/tools/mgr-cfg
 
 %build
 make -f Makefile.rhncfg all
