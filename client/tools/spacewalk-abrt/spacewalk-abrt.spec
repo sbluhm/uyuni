@@ -36,7 +36,7 @@ License:        GPL-2.0-only
 Group:          Applications/System
 
 Url:            https://github.com/uyuni-project/uyuni
-Source0:        https://github.com/spacewalkproject/spacewalk/archive/%{name}-%{version}.tar.gz
+Source0:        https://github.com/uyuni-project/uyuni/archive/%{name}-%{version}-1.tar.gz
 Source1:        %{name}-rpmlintrc
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
@@ -74,7 +74,7 @@ Python 3 specific files for %{name}.
 %endif
 
 %prep
-%setup -q
+%setup -q -n uyuni-%{name}-%{version}-1/client/tools/spacewalk-abrt
 
 %build
 make -f Makefile.spacewalk-abrt
