@@ -63,7 +63,7 @@
 
 %define pythonX %{?default_py3: python3}%{!?default_py3: python2}
 
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # Bash constructs in scriptlets don't play nice with Debian's default shell, dash
 %global _buildshell /bin/bash
 %endif
@@ -91,7 +91,7 @@ BuildArch:      noarch
 BuildRequires:  docbook-utils
 Requires:       %{pythonX}-%{name} = %{version}-%{release}
 
-%if %{_vendor} != "debbuild"
+%if "%{_vendor}" != "debbuild"
 %if 0%{?suse_version}
 # provide rhn directories and no selinux on suse
 BuildRequires:  spacewalk-client-tools
@@ -104,7 +104,7 @@ Requires:       libselinux-python
 %endif
 %endif
 
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 %if 0%{?build_py2}
 Requires: python-selinux
 %endif
@@ -135,7 +135,7 @@ Requires:       python-hashlib
 %endif
 BuildRequires:  python
 
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # For scriptlets
 Requires(preun): python-minimal
 Requires(post): python-minimal
@@ -157,10 +157,10 @@ Requires:       python3-rhn-client-tools >= 2.8.4
 Requires:       python3-rhnlib >= 2.8.3
 Requires:       python3-uyuni-common-libs
 BuildRequires:  python3
-%if %{_vendor} != "debbuild"
+%if "%{_vendor}" != "debbuild"
 BuildRequires:  python3-rpm-macros
 %endif
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # For scriptlets
 Requires(preun): python3-minimal
 Requires(post): python3-minimal
@@ -191,7 +191,7 @@ Obsoletes:      python-%{name}-client < %{oldversion}
 Provides:       python2-%{oldname}-client = %{oldversion}
 Obsoletes:      python2-%{oldname}-client < %{oldversion}
 Requires:       %{name}-client = %{version}-%{release}
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # For scriptlets
 Requires(preun): python-minimal
 Requires(post): python-minimal
@@ -208,7 +208,7 @@ Group:          Applications/System
 Provides:       python3-%{oldname}-client = %{oldversion}
 Obsoletes:      python3-%{oldname}-client < %{oldversion}
 Requires:       %{name}-client = %{version}-%{release}
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # For scriptlets
 Requires(preun): python3-minimal
 Requires(post): python3-minimal
@@ -238,7 +238,7 @@ Obsoletes:      python-%{name}-management < %{oldversion}
 Provides:       python2-%{oldname}-management = %{oldversion}
 Obsoletes:      python2-%{oldname}-management < %{oldversion}
 Requires:       %{name}-management = %{version}-%{release}
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # For scriptlets
 Requires(preun): python-minimal
 Requires(post): python-minimal
@@ -255,7 +255,7 @@ Group:          Applications/System
 Provides:       python3-%{oldname}-management = %{oldversion}
 Obsoletes:      python3-%{oldname}-management < %{oldversion}
 Requires:       %{name}-management = %{version}-%{release}
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # For scriptlets
 Requires(preun): python3-minimal
 Requires(post): python3-minimal
@@ -286,7 +286,7 @@ Provides:       python2-%{oldname}-actions = %{oldversion}
 Obsoletes:      python2-%{oldname}-actions < %{oldversion}
 Requires:       %{name}-actions = %{version}-%{release}
 Requires:       python2-%{name}-client
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # For scriptlets
 Requires(preun): python-minimal
 Requires(post): python-minimal
@@ -304,7 +304,7 @@ Provides:       python3-%{oldname}-actions = %{oldversion}
 Obsoletes:      python3-%{oldname}-actions < %{oldversion}
 Requires:       %{name}-actions = %{version}-%{release}
 Requires:       python3-%{name}-client
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # For scriptlets
 Requires(preun): python3-minimal
 Requires(post): python3-minimal
@@ -372,7 +372,7 @@ chown root %{_localstatedir}/log/rhncfg-actions
 chmod 600 %{_localstatedir}/log/rhncfg-actions
 fi
 
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 # Debian requires:
 # post: Do bytecompilation after install
 # preun: Remove any *.py[co] files
