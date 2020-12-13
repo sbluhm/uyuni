@@ -82,7 +82,7 @@ Python 3 specific files for %{name}.
 %endif
 
 %prep
-%setup -q
+%setup -q -n uyuni-%{name}-%{version}-1/client/tools/%{name}
 
 %build
 make -f Makefile.spacewalk-abrt
