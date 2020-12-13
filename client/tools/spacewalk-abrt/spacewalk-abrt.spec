@@ -41,7 +41,7 @@ Source1:        %{name}-rpmlintrc
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 BuildRequires:  gettext
-BuildRequires:  python-devel
+BuildRequires:  (python-devel or python2-devel)
 Requires:       %{pythonX}-%{name} = %{version}-%{release}
 Requires:       abrt
 Requires:       abrt-cli
@@ -53,7 +53,7 @@ spacewalk-abrt - rhn-check plug-in for collecting information about crashes hand
 %package -n python2-%{name}
 Summary:        ABRT plug-in for rhn-check
 Group:          Applications/System
-BuildRequires:  python
+BuildRequires:  (python or python2)
 Requires:       python2-rhn-check
 Requires:       python2-rhn-client-tools
 
