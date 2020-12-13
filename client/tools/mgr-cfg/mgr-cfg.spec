@@ -75,7 +75,7 @@ Obsoletes:      %{oldname} < %{oldversion}
 Release:        1%{?dist}
 Summary:        Spacewalk Configuration Client Libraries
 License:        GPL-2.0-only
-%if %{_vendor} == "debbuild"
+%if "%{_vendor}" == "debbuild"
 Group:      admin
 Packager:   Uyuni Project <uyuni-devel@opensuse.org>
 %else
