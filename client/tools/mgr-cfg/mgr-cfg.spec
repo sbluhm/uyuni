@@ -29,7 +29,7 @@
 %global rhnroot %{_datadir}/rhn
 %global rhnconf %{_sysconfdir}/sysconfig/rhn
 %global client_caps_dir %{rhnconf}/clientCaps.d
-#%global __python /usr/bin/python2 
+%global __python /usr/bin/python2 
 
 %if 0%{?fedora} || 0%{?suse_version} > 1320 || 0%{?rhel} >= 8
 %global build_py3   1
@@ -126,14 +126,22 @@ Obsoletes:      python-%{name} < %{oldversion}
 Provides:       python2-%{oldname} = %{oldversion}
 Obsoletes:      python2-%{oldname} < %{oldversion}
 Requires:       %{name} = %{version}-%{release}
+%if 0%{suse_version} || 0%{?rhel} >= 8
+Requires:       python2
+%else
 Requires:       python
+%endif
 Requires:       python2-rhn-client-tools >= 2.8.4
 Requires:       rhnlib >= 2.8.3
 Requires:       python2-uyuni-common-libs
 %if 0%{?rhel} && 0%{?rhel} <= 5
 Requires:       python-hashlib
 %endif
+%if 0%{suse_version} || 0%{?rhel} >= 8
+BuildRequires:  python2
+%else
 BuildRequires:  python
+%endif
 
 %if "%{_vendor}" == "debbuild"
 # For scriptlets
