@@ -126,14 +126,18 @@ Obsoletes:      python-%{name} < %{oldversion}
 Provides:       python2-%{oldname} = %{oldversion}
 Obsoletes:      python2-%{oldname} < %{oldversion}
 Requires:       %{name} = %{version}-%{release}
-Requires:       (python < 3 or python2)
 Requires:       python2-rhn-client-tools >= 2.8.4
 Requires:       rhnlib >= 2.8.3
 Requires:       python2-uyuni-common-libs
 %if 0%{?rhel} && 0%{?rhel} <= 5
 Requires:       python-hashlib
 %endif
-BuildRequires:  (python < 3 or python2)
+%if  0%{?rhel} >= 8
+Requires:       python2
+BuildRequires:  python2
+%else
+Requires:       python < 3
+BuildRequires:  python < 3
 %endif
 
 %if "%{_vendor}" == "debbuild"
