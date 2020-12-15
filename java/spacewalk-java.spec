@@ -398,7 +398,7 @@ BuildRequires:  systemd-rpm-macros
 This package contains the Java version of taskomatic.
 
 %prep
-%setup -q
+%setup -q -n uyuni-%{name}-%{version}-1/java
 
 %if 0%{?fedora}
 %define skip_xliff  1
