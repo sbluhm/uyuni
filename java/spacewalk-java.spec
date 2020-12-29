@@ -432,7 +432,7 @@ sed -i 's/apache2.service/%{apache2}.service/' scripts/taskomatic.service
 
 %build
 PRODUCT_NAME="SUSE Manager"
-%if !0%{?sle_version} || 0%{?is_opensuse}
+%if !0%{?sle_version} || 0%{?is_opensuse} || 0%{?rhel}
 PRODUCT_NAME="Uyuni"
 %endif
 
