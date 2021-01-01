@@ -97,7 +97,6 @@ BuildRequires:  concurrent
 BuildRequires:  dom4j
 BuildRequires:  dwr >= 3
 BuildRequires:  %{ehcache}
-BuildRequires:  (glassfish-jaxb-api or jaxb-api)
 BuildRequires:  google-gson >= 2.2.4
 BuildRequires:  hibernate-commons-annotations
 BuildRequires:  hibernate5
