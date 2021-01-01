@@ -151,7 +151,7 @@ find %{buildroot} -type d -depth -exec rmdir {} 2>/dev/null ';'
 
 # Don't use Java module com.sun.xml.bind if it isn't available. (only SUSE has it)
 if [[ ! `java --list-modules | grep com.sun.xml.bind` ]]; then
-    sed -i 's/,com.sun.xml.bind//' share/tomcat.java_opts
+    sed -i 's/--add-modules java.annotation,com.sun.xml.bind//' share/tomcat.java_opts
 fi
 
 %if 0%{?rhel} == 6
@@ -248,7 +248,7 @@ fi
 if [ $1 = 2 -a -e /etc/sysconfig/tomcat ]; then
     sed -ri '/\-\-add\-modules java\.annotation,com\.sun\.xml\.bind/!s/JAVA_OPTS="(.*)"/JAVA_OPTS="\1 --add-modules java.annotation,com.sun.xml.bind --add-exports java.annotation\/javax.annotation.security=ALL-UNNAMED --add-opens java.annotation\/javax.annotation.security=ALL-UNNAMED"/' /etc/sysconfig/tomcat
     if [[ ! `java --list-modules | grep com.sun.xml.bind` ]]; then
-        sed -i 's/,com.sun.xml.bind//' /etc/sysconfig/tomcat
+        sed -i 's/--add-modules java.annotation,com.sun.xml.bind//' /etc/sysconfig/tomcat
     fi
 fi
 
