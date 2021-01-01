@@ -112,6 +112,11 @@ BuildRequires:  %{apache_commons_validator}
 %if 0%{?rhel} >= 8 || 0%{?fedora}
 BuildRequires:  java-11-openjdk-devel
 BuildRequires:	maven-javadoc-plugin
+BuildRequires:  (glassfish-jaxb-api or jaxb-api)
+BuildRequires:  glassfish-jaxb-core
+BuildRequires:  glassfish-jaxb-runtime
+BuildRequires:  glassfish-jaxb-txw2
+BuildRequires:  istack-commons-runtime
 %else
 BuildRequires:  java-devel >= %{java_version}
 %endif
@@ -181,7 +186,7 @@ Requires:       concurrent
 Requires:       dwr >= 3
 Requires:       %{ehcache}
 Requires:       (jaf or gnu-jaf)
-%if 0%{?rhel}
+%if 0%{?rhel} || 0%{?fedora}
 Requires:       (glassfish-jaxb-api or jaxb-api)
 Requires:       glassfish-jaxb-core
 Requires:       glassfish-jaxb-runtime
