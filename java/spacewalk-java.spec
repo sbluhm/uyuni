@@ -182,7 +182,7 @@ Requires:       dwr >= 3
 Requires:       %{ehcache}
 Requires:       (jaf or gnu-jaf)
 %if 0%{?rhel}
-Requires:       glassfish-jaxb-api
+Requires:       (glassfish-jaxb-api or jaxb-api)
 Requires:       glassfish-jaxb-core
 Requires:       glassfish-jaxb-runtime
 Requires:       glassfish-jaxb-txw2
@@ -500,7 +500,7 @@ ant -Dproduct.name="'$PRODUCT_NAME'" -Dprefix=$RPM_BUILD_ROOT init-install apido
 
 # Don't use Java module com.sun.xml.bind if it isn't available. (only SUSE has it)
 if [[ ! `java --list-modules | grep com.sun.xml.bind` ]]; then
-    sed -i 's/,com.sun.xml.bind//' conf/default/rhn_taskomatic_daemon.conf
+    sed -i 's/--add-modules java.annotation,com.sun.xml.bind//' conf/default/rhn_taskomatic_daemon.conf
 fi
 
 %install
