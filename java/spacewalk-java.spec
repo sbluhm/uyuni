@@ -182,6 +182,13 @@ Requires:       concurrent
 Requires:       dwr >= 3
 Requires:       %{ehcache}
 Requires:       (jaf or gnu-jaf)
+%if 0%{?rhel}
+Requires:       glassfish-jaxb-api
+Requires:       glassfish-jaxb-core
+Requires:       glassfish-jaxb-runtime
+Requires:       glassfish-jaxb-txw2
+Requires:       istack-commons-runtime
+%endif
 Requires:       google-gson >= 2.2.4
 Requires:       hibernate-commons-annotations
 Requires:       hibernate5
@@ -492,9 +499,14 @@ popd
 echo "Building apidoc asciidoc sources"
 ant -Dproduct.name="'$PRODUCT_NAME'" -Dprefix=$RPM_BUILD_ROOT init-install apidoc-asciidoc
 
+# Don't use Java module com.sun.xml.bind if it isn't available. (only SUSE has it)
+if [[ ! `java --list-modules | grep com.sun.xml.bind` ]]; then
+    sed -i 's/,com.sun.xml.bind//' conf/default/rhn_taskomatic_daemon.conf
+fi
+
 %install
 PRODUCT_NAME="SUSE Manager"
-%if !0%{?sle_version} || 0%{?is_opensuse}
+%if !0%{?sle_version} || 0%{?is_opensuse} || 0%{?rhel} || 0%{?fedora}
 PRODUCT_NAME="Uyuni"
 %endif
 

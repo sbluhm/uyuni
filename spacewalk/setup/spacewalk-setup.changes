@@ -1,3 +1,4 @@
+- Removed Java module com.sun.bind if it is not available.
 - Drop the ssl_available option (SSL is always present)
 - Added dynamic path for trust store and doc root.
 - Updated SPEC for RHEL and Fedora.

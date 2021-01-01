@@ -148,6 +148,12 @@ sed -i "s/'python'/'python3'/g" lib/Spacewalk/Setup.pm
 make pure_install PERL_INSTALL_ROOT=%{buildroot}
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -type d -depth -exec rmdir {} 2>/dev/null ';'
+
+# Don't use Java module com.sun.xml.bind if it isn't available. (only SUSE has it)
+if [[ ! `java --list-modules | grep com.sun.xml.bind` ]]; then
+    sed -i 's/,com.sun.xml.bind//' share/tomcat.java_opts
+fi
+
 %if 0%{?rhel} == 6
 cat share/tomcat.java_opts.rhel6 >>share/tomcat.java_opts
 %endif
@@ -240,7 +246,10 @@ if [ $1 = 2 -a -e /etc/tomcat6/tomcat6.conf ]; then
 fi
 
 if [ $1 = 2 -a -e /etc/sysconfig/tomcat ]; then
-     sed -ri '/\-\-add\-modules java\.annotation,com\.sun\.xml\.bind/!s/JAVA_OPTS="(.*)"/JAVA_OPTS="\1 --add-exports java.annotation\/javax.annotation.security=ALL-UNNAMED --add-opens java.annotation\/javax.annotation.security=ALL-UNNAMED"/' /etc/sysconfig/tomcat
+    sed -ri '/\-\-add\-modules java\.annotation,com\.sun\.xml\.bind/!s/JAVA_OPTS="(.*)"/JAVA_OPTS="\1 --add-exports java.annotation\/javax.annotation.security=ALL-UNNAMED --add-opens java.annotation\/javax.annotation.security=ALL-UNNAMED"/' /etc/sysconfig/tomcat
+    if [[ ! `java --list-modules | grep com.sun.xml.bind` ]]; then
+        sed -i 's/,com.sun.xml.bind//' /etc/sysconfig/tomcat
+    fi
 fi
 
 if [ -e /etc/zypp/credentials.d/NCCcredentials ]; then
