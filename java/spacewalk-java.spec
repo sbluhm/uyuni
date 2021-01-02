@@ -825,6 +825,13 @@ chown tomcat:%{apache_group} /var/log/rhn/gatherer.log
 %{jardir}/taglibs-standard-impl.jar
 %{jardir}/taglibs-standard-jstlel.jar
 %{jardir}/taglibs-standard-spec.jar
+%if !0%{?suse_version}
+%{jardir}/glassfish-jaxb_jaxb-core.jar
+%{jardir}/glassfish-jaxb_jaxb-runtime.jar
+%{jardir}/glassfish-jaxb_txw2.jar
+%{jardir}/istack-commons_istack-commons-runtime.jar
+%{jardir}/jaxb-api.jar
+%endif
 
 # owned by cobbler needs cobbler permissions
 %attr(755,root,root) %dir %{cobprofdir}
