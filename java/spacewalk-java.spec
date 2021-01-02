@@ -442,6 +442,12 @@ done
 # Adapt Apache service name in taskomatic.service
 sed -i 's/apache2.service/%{apache2}.service/' scripts/taskomatic.service
 
+echo "TEMPORARY DEBUG INFORMATION"
+ls -l /usr/share/java
+ls -l /usr/share/java/*
+cat buildconf/build-props.xml
+
+
 %build
 PRODUCT_NAME="SUSE Manager"
 %if !0%{?sle_version} || 0%{?is_opensuse} || 0%{?rhel} || 0%{?fedora}
