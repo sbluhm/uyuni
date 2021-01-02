@@ -65,7 +65,7 @@ Group:          Applications/Internet
 Version:        4.2.5
 Release:        1%{?dist}
 Url:            https://github.com/uyuni-project/uyuni
-Source0:        https://github.com/uyuni-project/uyuni/archive/dev-java11.tar.gz
+Source0:        https://github.com/sbluhm/uyuni/archive/dev-java11.tar.gz
 Source1:        %{name}-rpmlintrc
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
