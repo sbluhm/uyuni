@@ -96,8 +96,8 @@
   <condition property="txw2" value="glassfish-jaxb/txw2" else="">
     <available file="${java.lib.dir}/glassfish-jaxb/txw2.jar" />
   </condition>
-  <condition property="istack-commons" value="istack-commons/istack-commons-runtime" else="">
-    <available file="${java.lib.dir}/istack-commons/istack-commons-runtime.jar" />
+  <condition property="istack-commons" value="istack-commons-runtime" else="">
+    <available file="${java.lib.dir}/istack-commons-runtime.jar" />
   </condition>
   <property name="jaxb" value="${jaxb-api} ${jaxb-core} ${jaxb-runtime} ${txw2} ${istack-commons}"/>
 

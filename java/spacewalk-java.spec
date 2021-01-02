@@ -444,7 +444,7 @@ sed -i 's/apache2.service/%{apache2}.service/' scripts/taskomatic.service
 
 echo "TEMPORARY DEBUG INFORMATION"
 ls -l /usr/share/java
-ls -l /usr/share/java/*
+echo "cat build-props.xml"
 cat buildconf/build-props.xml
 
 
@@ -835,7 +835,7 @@ chown tomcat:%{apache_group} /var/log/rhn/gatherer.log
 %{jardir}/glassfish-jaxb_jaxb-core.jar
 %{jardir}/glassfish-jaxb_jaxb-runtime.jar
 %{jardir}/glassfish-jaxb_txw2.jar
-%{jardir}/istack-commons_istack-commons-runtime.jar
+%{jardir}/istack-commons-runtime.jar
 %{jardir}/jaxb-api.jar
 %endif
 
