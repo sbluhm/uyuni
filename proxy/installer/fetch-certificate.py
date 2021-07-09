@@ -1,8 +1,8 @@
 #!/usr/bin/python -u
+# pylint: disable=C0103
 
 import os
 import sys
-import time
 import argparse
 
 
@@ -47,7 +47,7 @@ if __name__ == "__main__":
                 with open(args.destination, 'wb') as _file:
                     _file.write(data['data'].encode('utf8'))
                     print("Certificate saved to: {0}".format(args.destination))
-            except Exception as ex:
+            except Exception as ex:  # pylint: disable=W0703
                 print("Unable to write to destination: " + ex.message)
                 sys.exit(1)
             sys.exit(0)
