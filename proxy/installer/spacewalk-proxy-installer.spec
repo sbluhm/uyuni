@@ -24,7 +24,7 @@
 
 %define apacheconfdir %{_sysconfdir}/apache2
 
-%if 0%{?suse_version} > 1320 || 0%{?fedora}
+%if 0%{?suse_version} > 1320 || 0%{?fedora} || 0%{?rhel}
 # SLE15 and Fedora builds on Python 3
 %global build_py3   1
 %endif
