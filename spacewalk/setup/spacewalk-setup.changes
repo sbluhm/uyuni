@@ -1,3 +1,5 @@
+- Automatically detect PostgreSQL service and data folder name.
+
 -------------------------------------------------------------------
 Wed Dec 14 14:07:13 CET 2022 - jgonzalez@suse.com
 
