@@ -1,3 +1,6 @@
+- Fix CLM environments UI for environment labels containing dots (bsc#1207838)
+- Added pages to install and remove ptf
+
 -------------------------------------------------------------------
 Mon Jan 23 08:32:14 CET 2023 - jgonzalez@suse.com
 

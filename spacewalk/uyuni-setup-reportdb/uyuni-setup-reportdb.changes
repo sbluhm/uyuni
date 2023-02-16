@@ -1,4 +1,5 @@
 - Automatically detect PostgreSQL service and data folder name.
+- improve postgres user check
 
 -------------------------------------------------------------------
 Mon Jan 23 08:26:26 CET 2023 - jgonzalez@suse.com

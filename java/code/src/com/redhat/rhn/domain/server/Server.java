@@ -2302,7 +2302,7 @@ public class Server extends BaseDomainHelper implements Identifiable {
      * @return <code>true</code> if OS supports Transactional Update
      */
     public boolean doesOsSupportsTransactionalUpdate() {
-        return isSLEMicro();
+        return isSLEMicro() || isLeapMicro() || isopenSUSEMicroOS();
     }
 
     /**
@@ -2315,6 +2315,15 @@ public class Server extends BaseDomainHelper implements Identifiable {
         return isSLES12() || isSLES15() || isLeap15() || isUbuntu1804() || isUbuntu2004() || isUbuntu2204() ||
                 isRedHat6() || isRedHat7() || isRedHat8() || isAlibaba2() || isAmazon2() || isRocky8() ||
                 isRocky9() || isDebian11() || isDebian10();
+    }
+
+    /**
+     * Return <code>true</code> if OS supports Program Temporary Fixes (PTFs)
+     *
+     * @return <code>true</code> if OS supports PTF uninstallation
+     */
+    public boolean doesOsSupportPtf() {
+        return ServerConstants.SLES.equals(getOs());
     }
 
     /**
@@ -2354,6 +2363,20 @@ public class Server extends BaseDomainHelper implements Identifiable {
 
     boolean isLeap15() {
         return ServerConstants.LEAP.equalsIgnoreCase(getOs()) && getRelease().startsWith("15");
+    }
+
+    /**
+     * @return true if the installer type is of openSUSE Leap Micro
+     */
+    boolean isLeapMicro() {
+        return ServerConstants.LEAPMICRO.equals(getOs());
+    }
+
+    /**
+     * @return true if the installer type is of openSUSE MicroOS
+     */
+    boolean isopenSUSEMicroOS() {
+        return ServerConstants.OPENSUSEMICROOS.equals(getOs());
     }
 
     boolean isUbuntu1804() {
