@@ -1,4 +1,5 @@
 - Automatically detect PostgreSQL service and data folder name.
+- Replace apache group to root for RHEL.
 
 -------------------------------------------------------------------
 Tue Feb 21 14:10:57 CET 2023 - jgonzalez@suse.com
