@@ -13,6 +13,8 @@
                  <!-- this configures commons logging properly for Jasper2 -->
                  <pathelement
                      location="${src.dir}/internal/src/com/redhat/rhn/internal/jasper2"/>
+	         <pathelement
+                     location="/usr/share/tomcat/bin/tomcat-juli.jar"/>
              </classpath>
     </taskdef>
 
