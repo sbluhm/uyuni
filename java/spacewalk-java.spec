@@ -428,7 +428,7 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
 %endif
 
 # compile only java sources (no packing here)
-ant -Dprefix=$RPM_BUILD_ROOT -Dproduct.name="'$PRODUCT_NAME'" init-install compile
+ant -v -debug -Dprefix=$RPM_BUILD_ROOT -Dproduct.name="'$PRODUCT_NAME'" init-install compile
 
 %if 0%{?run_checkstyle}
 echo "Running checkstyle on java main sources"
