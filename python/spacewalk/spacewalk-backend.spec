@@ -308,7 +308,7 @@ export PYTHON_MODULE_VERSION=%{version}
 cd $RPM_BUILD_ROOT
 for d in usr/share/locale/*; do
   if [ ! -d "/$d" ]; then
-    rm -rfv "./$d"
+    echo "Deleting LANG folder"
   fi
 done
 cd -
