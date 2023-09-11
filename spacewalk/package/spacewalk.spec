@@ -79,7 +79,6 @@ Requires:       spacewalk-schema
 
 Requires:       virtual-host-gatherer
 Recommends:     virtual-host-gatherer-VMware
-Requires:       subscription-matcher
 Requires:       susemanager-sls
 
 Obsoletes:      spacewalk-monitoring < 2.3
