@@ -172,9 +172,10 @@ class ContentSource(zypper_ContentSource):
         self.dnfbase.close()
 
 
-    def setup_repo(self, repo, no_mirrors, ca_cert_file, client_cert_file, client_key_file):
+    def setup_repo(self, repo, no_mirrors, ca_cert_file, client_cert_file, client_key_file, uln_repo=False):
         """
-        Setup repository and fetch metadata
+        Setup repository and fetch metadata.
+        Parameter uln_repo is not implemented.
         """
         repo.metadata_expire=0
         repo.mirrorlist = self.url
