@@ -178,8 +178,9 @@ class ContentSource(zypper_ContentSource):
         Parameter uln_repo is not implemented.
         """
         repo.metadata_expire=0
-        repo.mirrorlist = self.url
-        repo.baseurl = [self.url]
+        dnf_repo_url = self._prep_dnf_repo_url(self.url, uln_repo)
+        repo.mirrorlist = dnf_repo_url
+        repo.baseurl = [dnf_repo_url]
         with cfg_component('server.satellite') as CFG:
             pkgdir = os.path.join(CFG.MOUNT_POINT, CFG.PREPENDED_DIR, self.org, 'stage')
         if not os.path.isdir(pkgdir):
@@ -200,7 +201,7 @@ class ContentSource(zypper_ContentSource):
 
         if no_mirrors:
             repo.mirrorlist = ""
-        self.digest=hashlib.sha256(self.url.encode('utf8')).hexdigest()[:16]
+        self.digest=hashlib.sha256(dnf_repo_url.encode('utf8')).hexdigest()[:16]
         self.dnfbase.repos.add(repo)
         self.repoid = repo.id
         # Try loading the repo configuration
@@ -348,6 +349,29 @@ class ContentSource(zypper_ContentSource):
                     found = g
                     break
         return found
+
+    def _prep_dnf_repo_url(self, url, uln_repo):
+        """
+        Prepare the repository baseurl to use in the Dnf repo file.
+        Mainly a ULN url will be converted
+
+        :returns: str
+        """
+        if uln_repo:
+            DEFAULT_UP2DATE_URL = "linux-update.oracle.com"
+            uln_url = None
+            label = None
+            if url.startswith("uln:///"):
+                uln_url = "https://" + DEFAULT_UP2DATE_URL
+                label = url[7:]
+            elif url.startswith("uln://"):
+                parts = url[6:].split("/")
+                uln_url = "https://" + parts[0]
+                label = parts[1]
+            else:
+                raise RhnSyncException("url format error, url must start with uln://")
+            return uln_url + "/XMLRPC/GET-REQ/" + label
+        return url
 
     def _expand_comps_type(self, comps_type, environments, groups, filters):
         new_filters = []
