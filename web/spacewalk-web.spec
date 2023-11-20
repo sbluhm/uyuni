@@ -18,12 +18,11 @@
 
 %define shared_path /usr/share/susemanager
 %define shared_www_path %{shared_path}/www
-%if 0%{?suse_version}
 %define www_path %{shared_www_path}/htdocs
+%if 0%{?suse_version}
 %define apache_user wwwrun
 %define apache_group www
 %else
-%define www_path %{_var}/www/html
 %if 0%{?rhel}
 %define apache_user root
 %define apache_group root
