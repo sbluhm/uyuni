@@ -17,7 +17,7 @@
 
 
 %if 0%{?suse_version}
-%global wwwdocroot /usr/share/susemanager/www/htdocs
+%global wwwdocroot %{_datadir}/susemanager/www/htdocs
 %else
 %global wwwdocroot %{_localstatedir}/www/html
 %endif

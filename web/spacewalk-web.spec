@@ -16,7 +16,7 @@
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 
-%define shared_path /usr/share/susemanager
+%define shared_path %{_datadir}/susemanager
 %define shared_www_path %{shared_path}/www
 %define www_path %{shared_www_path}/htdocs
 %if 0%{?suse_version}
