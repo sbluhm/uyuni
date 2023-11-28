@@ -123,8 +123,8 @@ Conflicts:      postgresql-implementation >= 14
 Conflicts:      postgresql-contrib-implementation >= 14
 %endif # if sle_version >= 150400
 %else # not a supported SUSE version or alternative OS.
-Requires:       postgresql
-Requires:       postgresql-contrib
+Requires:       postgresql = %{postgresql_version}
+Requires:       postgresql-contrib = %{postgresql_version}
 %endif # if sle_Version
 
 %description postgresql
