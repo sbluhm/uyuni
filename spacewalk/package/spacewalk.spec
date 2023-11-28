@@ -124,12 +124,11 @@ Conflicts:      postgresql-implementation >= 14
 Conflicts:      postgresql-contrib-implementation >= 14
 %endif # if sle_version >= 150400
 %else # not a supported SUSE version or alternative OS.
-Requires:       postgresql14
-Requires:       postgresql14-contrib
-# we do not support postgresql versions > 14.x yet
+Requires:       postgresql
+Requires:       postgresql-contrib
 # Hardcoded v15 conflict due to PostgreSQL bug 17507 (instead of >= 15)
-Conflicts:      postgresql15
-Conflicts:      postgresql15-contrib
+Conflicts:      postgresql >= 15
+Conflicts:      postgresql-contrib >= 15
 %endif # if sle_Version
 
 %description postgresql
