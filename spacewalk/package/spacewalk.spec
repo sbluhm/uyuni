@@ -125,9 +125,6 @@ Conflicts:      postgresql-contrib-implementation >= 14
 %else # not a supported SUSE version or alternative OS.
 Requires:       postgresql
 Requires:       postgresql-contrib
-# Hardcoded v15 conflict due to PostgreSQL bug 17507 (instead of >= 15)
-Conflicts:      postgresql >= 15
-Conflicts:      postgresql-contrib >= 15
 %endif # if sle_Version
 
 %description postgresql
