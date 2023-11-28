@@ -78,7 +78,6 @@ Requires:       spacewalk-schema
 
 Requires:       virtual-host-gatherer
 Recommends:     virtual-host-gatherer-VMware
-Requires:       subscription-matcher
 Requires:       susemanager-sls
 
 Requires:       cobbler
