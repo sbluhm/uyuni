@@ -55,15 +55,6 @@ class ContentSource(yum_ContentSource):
         print(("The download URL is: " + self._uln_auth.url + "/XMLRPC/GET-REQ/" + label))
         if self.proxy_url:
             print(("Trying proxy " + self.proxy_url))
-        print("uln_src.ContentSource._authenticate:58")
-        print(self._url_orig)
-        print(self._uln_auth)
-        print(self.uln_token)
-        print(self.http_headers)
-        print(hostname)
-        print(label)
-        print("uln_src.ContentSource._authenticate/END")
-
 
     # pylint: disable=arguments-differ
     def setup_repo(self, repo, *args, **kwargs):

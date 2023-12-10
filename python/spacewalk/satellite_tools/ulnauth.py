@@ -85,9 +85,7 @@ class ULNAuth:
         else:
             username = password = None
         assert username is not None and password is not None, "Credentials were not found in the configuration"
-        print("ulnauth.get_gredentials:88:")
-        print(username)
-        print(password)
+
         return username, password
 
     def authenticate(self, url):
@@ -117,6 +115,5 @@ class ULNAuth:
 
         if not self.token or err_msg:
             raise ULNTokenException("Authentication failure: token was not obtained. {}".format(err_msg))
-        print("ulnauth.authenticate:120:")
-        print(self.token)
+
         return self.token

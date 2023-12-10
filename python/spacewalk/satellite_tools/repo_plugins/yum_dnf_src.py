@@ -71,7 +71,7 @@ class ContentSource(zypper_ContentSource):
     def __init__(self, url, name, insecure=False, interactive=False, yumsrc_conf=YUMSRC_CONF, org="1",
                  channel_label="",
                  no_mirrors=False, ca_cert_file=None, client_cert_file=None,
-                 client_key_file=None, channel_arch="", http_headers=None):
+                 client_key_file=None, channel_arch="", http_headers={}):
         # insecure and interactive are not implemented for this module.
         """
         Plugin constructor.
@@ -94,7 +94,7 @@ class ContentSource(zypper_ContentSource):
         self.sslcacert = ca_cert_file
         self.sslclientcert = client_cert_file
         self.sslclientkey = client_key_file
-        self.http_headers = {}
+        self.http_headers = http_headers
 
         self.dnfbase = dnf.Base()
         self.dnfbase.conf.read(yumsrc_conf)
@@ -204,6 +204,10 @@ class ContentSource(zypper_ContentSource):
         self.digest=hashlib.sha256(dnf_repo_url.encode('utf8')).hexdigest()[:16]
         self.dnfbase.repos.add(repo)
         self.repoid = repo.id
+        head = tuple()
+        for key in self.http_headers:
+            head = head + (key + ": " + self.http_headers[key],)
+        self.dnfbase.repos[self.repoid].set_http_headers(head)
         # Try loading the repo configuration
         try:
             self.dnfbase.repos[self.repoid].load()
