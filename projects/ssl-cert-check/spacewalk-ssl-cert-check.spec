@@ -29,7 +29,7 @@ License:        GPL-2.0-only
 Group:          Applications/System
 URL:            https://github.com/uyuni-project/uyuni
 Source0:        %{name}-%{version}.tar.gz
-Source1:        https://raw.githubusercontent.com/uyuni-project/uyuni/%{name}-%{version}-1/projects/ssl-cert-check/%{name}-rpmlintrc
+Source1:        https://raw.githubusercontent.com/uyuni-project/uyuni/master/projects/ssl-cert-check/%{name}-rpmlintrc
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 Obsoletes:      rhn-ssl-cert-check < %{version}

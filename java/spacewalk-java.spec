@@ -65,7 +65,7 @@ Version:        5.0.0
 Release:        0
 URL:            https://github.com/uyuni-project/uyuni
 Source0:        %{name}-%{version}.tar.gz
-Source1:        https://raw.githubusercontent.com/uyuni-project/uyuni/%{name}-%{version}-1/java/%{name}-rpmlintrc
+Source1:        https://raw.githubusercontent.com/uyuni-project/uyuni/master/java/%{name}-rpmlintrc
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 ExcludeArch:    ia64
