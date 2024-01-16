@@ -27,7 +27,7 @@ Group:          Applications/Internet
 Version:        4.4.9
 Release:        1
 Source0:        %{name}-%{version}.tar.gz
-Source1:        https://raw.githubusercontent.com/uyuni-project/uyuni/%{name}-%{version}-1/schema/spacewalk/%{name}-rpmlintrc
+Source1:        %{name}-rpmlintrc
 
 URL:            https://github.com/uyuni-project/uyuni
 BuildArch:      noarch
