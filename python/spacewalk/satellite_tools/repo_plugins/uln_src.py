@@ -24,7 +24,7 @@ import sys
 
 sys.path.append("/usr/share/rhn")
 
-from spacewalk.satellite_tools.repo_plugins.yum_src import (
+from spacewalk.satellite_tools.repo_plugins.yum_dnf_src import (
     ContentSource as yum_ContentSource,
 )
 from spacewalk.satellite_tools.syncLib import RhnSyncException
