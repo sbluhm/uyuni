@@ -61,6 +61,7 @@ import com.redhat.rhn.manager.channel.ChannelManager;
 import com.redhat.rhn.manager.errata.cache.ErrataCacheManagerTest;
 import com.redhat.rhn.manager.kickstart.tree.BaseTreeEditOperation;
 import com.redhat.rhn.manager.system.SystemManager;
+import com.redhat.rhn.taskomatic.task.repomd.SaxSerializerFactory;
 import com.redhat.rhn.taskomatic.task.repomd.SimpleAttributesImpl;
 import com.redhat.rhn.taskomatic.task.repomd.SimpleContentHandler;
 import com.redhat.rhn.testing.BaseTestCaseWithUser;
@@ -68,8 +69,6 @@ import com.redhat.rhn.testing.ChannelTestUtils;
 import com.redhat.rhn.testing.ServerTestUtils;
 import com.redhat.rhn.testing.TestUtils;
 
-import org.apache.xml.serialize.OutputFormat;
-import org.apache.xml.serialize.XMLSerializer;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.junit.jupiter.api.Test;
@@ -81,6 +80,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.sax.TransformerHandler;
+import javax.xml.transform.stream.StreamResult;
 
 /**
  * PackageManagerTest
@@ -596,11 +599,14 @@ public class PackageManagerTest extends BaseTestCaseWithUser {
 
 
     protected SimpleContentHandler getTemporaryHandler(OutputStream st) {
-        OutputFormat of = new OutputFormat();
-        of.setPreserveSpace(true);
-        of.setOmitXMLDeclaration(true);
-        XMLSerializer tmpSerial = new XMLSerializer(st, of);
-        return new SimpleContentHandler(tmpSerial);
+        try {
+            TransformerHandler transformerHandler = SaxSerializerFactory.newTransformerHandler(true);
+            transformerHandler.setResult(new StreamResult(st));
+            return new SimpleContentHandler(transformerHandler);
+        }
+        catch (TransformerException ex) {
+            throw new IllegalStateException("Unable to create temporary handler", ex);
+        }
     }
 
 
