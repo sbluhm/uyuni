@@ -11472,6 +11472,23 @@ To amend this situation, please add SCC credentials &lt;a href="/rhn/admin/setup
         <source>PXE Event Failed</source>
       <target state="new"/>
   </trans-unit>
+      <trans-unit id="ARMHF Debian" xml:space="preserve">
+        <source>ARMHF Debian</source>
+        <target>ARMHF Debian</target>
+      <target state="new"/>
+  </trans-unit>
+      <trans-unit id="diskcheckwarning" xml:space="preserve">
+        <source>Disk Check</source>
+      <target state="new"/>
+  </trans-unit>
+      <trans-unit id="notification.diskcheck.summary" xml:space="preserve">
+        <source>You are running out of space on your @@PRODUCT_NAME@@ {0}. This is {1}</source>
+      <target state="new"/>
+  </trans-unit>
+      <trans-unit id="notification.diskcheck.details" xml:space="preserve">
+        <source>You are running out of space on your @@PRODUCT_NAME@@ {0}. This is {1}. If you run out of disk space, @@PRODUCT_NAME@@ will stop running, and this could lead to a loss of data. @@PRODUCT_NAME@@ will shutdown automatically.</source>
+      <target state="new"/>
+  </trans-unit>
       </body>
   </file>
 </xliff>
