@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-13 09:07+0100\n"
+"POT-Creation-Date: 2026-04-03 14:32+0200\n"
 "PO-Revision-Date: 2026-03-24 11:04+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/uyuni/web/ca/>\n"
@@ -172,7 +172,7 @@ msgstr "Cognom"
 #: ../html/src/manager/admin/access-control/access-group-permissions.tsx:354
 #: ../html/src/manager/admin/access-control/access-group-review.tsx:175
 #: ../html/src/manager/audit/cveaudit/cveaudit.tsx:410
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:169
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:179
 #: ../html/src/manager/content-management/list-projects/list-projects.tsx:97
 #: ../html/src/manager/content-management/shared/business/filters.enum.ts:139
 #: ../html/src/manager/content-management/shared/components/panels/environment-lifecycle/environment-form.tsx:28
@@ -259,7 +259,7 @@ msgstr "Hora de l'autenticació"
 #: ../html/src/manager/admin/access-control/access-group-list.tsx:130
 #: ../html/src/manager/admin/access-control/access-group-user.tsx:142
 #: ../html/src/manager/audit/cveaudit/cveaudit.tsx:427
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:198
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:208
 #: ../html/src/manager/images/image-profiles.tsx:191
 #: ../html/src/manager/images/image-stores.tsx:193
 #: ../html/src/manager/images/image-view.tsx:689
@@ -363,7 +363,7 @@ msgstr "Seleccioneu una planificació"
 #: ../html/src/manager/admin/password-policy/password-policy.tsx:120
 #: ../html/src/manager/content-management/list-filters/filter-edit.tsx:194
 #: ../html/src/manager/minion/ansible/edit-ansible-path.tsx:15
-#: ../html/src/manager/minion/ansible/edit-ansible-vars-modal.tsx:95
+#: ../html/src/manager/minion/ansible/edit-ansible-vars-modal.tsx:98
 #: ../html/src/manager/minion/ansible/new-ansible-path.tsx:33
 #: ../html/src/manager/minion/ansible/schedule-playbook.tsx:172
 #: ../html/src/manager/minion/packages/package-states.tsx:193
@@ -435,7 +435,7 @@ msgstr "Esteu segur que voleu {action} el {name} seleccionat? ({count} {name}s s
 #: ../html/src/manager/images/image-view-overview.tsx:806
 #: ../html/src/manager/images/image-view-overview.tsx:807
 #: ../html/src/manager/minion/ansible/edit-ansible-path.tsx:18
-#: ../html/src/manager/minion/ansible/edit-ansible-vars-modal.tsx:87
+#: ../html/src/manager/minion/ansible/edit-ansible-vars-modal.tsx:90
 #: ../html/src/manager/systems/delete-system.tsx:79
 #: ../html/src/manager/systems/delete-system.tsx:80
 msgid "Cancel"
@@ -455,7 +455,8 @@ msgstr "Cancel·la"
 #: ../html/src/manager/admin/payg/payg.tsx:70
 #: ../html/src/manager/admin/payg/payg.tsx:71
 #: ../html/src/manager/content-management/list-filters/filter-edit.tsx:162
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:142
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:154
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:229
 #: ../html/src/manager/content-management/project/project.tsx:106
 #: ../html/src/manager/images/image-profiles.tsx:136
 #: ../html/src/manager/images/image-profiles.tsx:211
@@ -468,8 +469,8 @@ msgstr "Cancel·la"
 #: ../html/src/manager/maintenance/details/maintenance-windows-details.tsx:46
 #: ../html/src/manager/maintenance/list/calendar-list.tsx:92
 #: ../html/src/manager/maintenance/list/schedule-list.tsx:72
-#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:311
-#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:330
+#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:314
+#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:333
 #: ../html/src/manager/minion/ansible/edit-ansible-path.tsx:22
 #: ../html/src/manager/notifications/notifications-list.tsx:115
 #: ../html/src/manager/packages/list.tsx:72
@@ -524,8 +525,8 @@ msgstr "Casella de selecció"
 #: ../html/src/manager/admin/payg-shared/sshData/payg-ssh-data-view.tsx:25
 #: ../html/src/manager/admin/setup/proxy/proxy.tsx:74
 #: ../html/src/manager/images/image-store-edit.tsx:180
-#: ../html/src/manager/login/susemanager/login.tsx:98
-#: ../html/src/manager/login/uyuni/login.tsx:96
+#: ../html/src/manager/login/susemanager/login.tsx:99
+#: ../html/src/manager/login/uyuni/login.tsx:97
 #: ../html/src/manager/systems/bootstrap/bootstrap-minions.tsx:427
 #: ../html/src/manager/systems/bootstrap/bootstrap-minions.tsx:550
 msgid "Password"
@@ -868,7 +869,7 @@ msgstr "No hi ha esclaus ISSv1 per migrar."
 #: ../html/src/manager/maintenance/details/maintenance-windows-details.tsx:28
 #: ../html/src/manager/maintenance/details/maintenance-windows-details.tsx:30
 #: ../html/src/manager/maintenance/edit/maintenance-windows-edit.tsx:52
-#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:266
+#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:269
 #: ../html/src/manager/minion/ansible/schedule-playbook.tsx:149
 #: ../html/src/manager/recurring/recurring-actions-details.tsx:234
 #: ../html/src/manager/recurring/recurring-actions-details.tsx:236
@@ -1043,7 +1044,7 @@ msgstr "El testimoni que dona accés al servidor remot per establir la connexió
 #: ../html/src/manager/admin/access-control/access-group-user.tsx:136
 #: ../html/src/manager/admin/setup/proxy/proxy.tsx:106
 #: ../html/src/manager/images/image-store-edit.tsx:171
-#: ../html/src/manager/login/susemanager/login.tsx:87
+#: ../html/src/manager/login/susemanager/login.tsx:88
 #: ../html/src/manager/systems/virtualhostmanager/virtualhostmanager-details.tsx:164
 msgid "Username"
 msgstr "Nom d'usuari"
@@ -1466,7 +1467,7 @@ msgid "Users"
 msgstr "Usuaris"
 
 #: ../html/src/components/input/form-multi-input/single-field.example.tsx:47
-#: ../html/src/manager/login/uyuni/login.tsx:84
+#: ../html/src/manager/login/uyuni/login.tsx:85
 msgid "Login"
 msgstr "Inici de sessió"
 
@@ -2256,13 +2257,13 @@ msgstr "Només els seleccionats"
 
 #: ../html/src/manager/admin/access-control/access-group-permissions.tsx:282
 #: ../html/src/manager/admin/access-control/access-group-review.tsx:128
-#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:255
+#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:258
 msgid "Expand All"
 msgstr "Expandeix-ho tot"
 
 #: ../html/src/manager/admin/access-control/access-group-permissions.tsx:282
 #: ../html/src/manager/admin/access-control/access-group-review.tsx:128
-#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:255
+#: ../html/src/manager/minion/ansible/ansible-var-yaml-editor.tsx:258
 msgid "Collapse All"
 msgstr "Replega-ho tot"
 
@@ -3781,33 +3782,75 @@ msgstr "Permet"
 msgid "Rule"
 msgstr "Regla"
 
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:82
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:77
+#, fuzzy
+#| msgid "Image profile has been deleted."
+msgid "Filter has been deleted."
+msgstr "S'ha eliminat el perfil de la imatge."
+
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:93
 msgid "Some of the selected filters are used in projects and can not be deleted."
 msgstr "Alguns dels filtres seleccionats s'utilitzen en projectes i no es poden suprimir."
 
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:125
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:102
+#, fuzzy
+#| msgid "Image profiles have been deleted."
+msgid "Filter have been deleted."
+msgstr "S'han eliminat els perfils d'imatge."
+
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:137
 msgid "Create Filter"
 msgstr "Crea un filtre"
 
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:137
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:149
 msgid "Select unused"
 msgstr "Selecció no utilitzada"
 
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:149
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:161
 msgid "Content Lifecycle Filters"
 msgstr "Filtres de cicle de vida del contingut"
 
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:158
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:170
 msgid "Filter by name or project"
 msgstr "Filtra per nom o projecte"
 
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:174
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:184
 msgid "Projects in use"
 msgstr "Projectes en ús"
 
-#: ../html/src/manager/content-management/list-filters/list-filters.tsx:206
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:217
 msgid "Edit Filter"
 msgstr "Edita el filtre"
+
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:242
+#, fuzzy
+#| msgid "Create Filter"
+msgid "Delete Filter"
+msgstr "Crea un filtre"
+
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:245
+#, fuzzy
+#| msgid "Are you sure you want to delete profile"
+msgid "Are you sure you want to delete the filter"
+msgstr "Esteu segur que voleu suprimir el perfil"
+
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:254
+#, fuzzy
+#| msgid "Delete Selected Profile(s)"
+msgid "Delete Selected Filter(s)"
+msgstr "Suprimeix el/s perfil/s seleccionat/s"
+
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:258
+#, fuzzy
+#| msgid "Are you sure you want to delete the selected item?"
+msgid "Are you sure you want to delete the selected filter?"
+msgstr "Esteu segur que voleu suprimir l'element seleccionat?"
+
+#: ../html/src/manager/content-management/list-filters/list-filters.tsx:259
+#, fuzzy
+#| msgid "Are you sure you want to delete selected profiles? ({count} profiles selected)"
+msgid "Are you sure you want to delete selected filters? ({count} filters selected)"
+msgstr "Esteu segur que voleu suprimir els perfils seleccionats? ({count} perfils seleccionats)"
 
 #: ../html/src/manager/content-management/list-filters/templates/index.tsx:32
 msgid "Live patching based on a specific system"
@@ -5013,52 +5056,82 @@ msgstr "Esteu segur que voleu suprimir la imatge seleccionada?"
 msgid "Are you sure you want to delete selected images? ({count} images selected)"
 msgstr "Esteu segur que voleu suprimir les imatges seleccionades? ({count} imatges seleccionades)"
 
-#: ../html/src/manager/login/messages.tsx:12
+#: ../html/src/manager/login/messages.tsx:18
 msgid "A schema upgrade is required. Please upgrade your schema at your earliest convenience to receive latest bug fixes and avoid potential problems."
 msgstr "Es requereix una actualització de l'esquema. Actualitzeu el vostre esquema com més aviat millor per rebre les últimes correccions d'errors i evitar possibles problemes."
 
-#: ../html/src/manager/login/messages.tsx:21
-msgid "Unable to validate the disk space availability. Please contact your system admistrator if this problem persists."
+#: ../html/src/manager/login/messages.tsx:27
+#, fuzzy
+#| msgid "Unable to validate the disk space availability. Please contact your system admistrator if this problem persists."
+msgid "Unable to validate the disk space availability on Server. Please contact your system administrator if this problem persists."
 msgstr "No s'ha pogut validar la disponibilitat d'espai del disc. Si us plau, poseu-vos en contacte amb l'administrador del sistema si aquest problema persisteix."
 
-#: ../html/src/manager/login/messages.tsx:26
+#: ../html/src/manager/login/messages.tsx:32
 msgid "Some important directories are missing. Please contact your system administrator to review the configuration."
 msgstr "Falten alguns directoris importants. Si us plau, poseu-vos en contacte amb l'administrador del sistema per revisar la configuració."
 
-#: ../html/src/manager/login/messages.tsx:31
-msgid "The available disk space on the server is running low. Please contact your system administrator to add more disk space."
+#: ../html/src/manager/login/messages.tsx:37
+#, fuzzy
+#| msgid "The available disk space on the server is running low. Please contact your system administrator to add more disk space."
+msgid "The available disk space for the server is low. To prevent an automatic shutdown via health check, please contact your system administrator immediately to allocate additional space."
 msgstr "L'espai de disc disponible en el servidor està funcionant baix. Poseu-vos en contacte amb l'administrador del sistema per afegir més espai al disc."
 
-#: ../html/src/manager/login/messages.tsx:36
-msgid "The available disk space on the server is critically low. Please contact your system administrator to add more disk space."
+#: ../html/src/manager/login/messages.tsx:42
+#, fuzzy
+#| msgid "The available disk space on the server is critically low. Please contact your system administrator to add more disk space."
+msgid "The available disk space for the server is critically low. To prevent an automatic shutdown via health check, please contact your system administrator immediately to allocate additional space."
 msgstr "L'espai de disc disponible al servidor és críticament baix. Poseu-vos en contacte amb l'administrador del sistema per afegir més espai al disc."
 
-#: ../html/src/manager/login/messages.tsx:51
+#: ../html/src/manager/login/messages.tsx:59
+#, fuzzy
+#| msgid "Unable to validate the disk space availability. Please contact your system admistrator if this problem persists."
+msgid "Unable to validate the disk space availability on Database. Please contact your system administrator if this problem persists."
+msgstr "No s'ha pogut validar la disponibilitat d'espai del disc. Si us plau, poseu-vos en contacte amb l'administrador del sistema si aquest problema persisteix."
+
+#: ../html/src/manager/login/messages.tsx:64
+#, fuzzy
+#| msgid "Some important directories are missing. Please contact your system administrator to review the configuration."
+msgid "Some important directories are missing on database. Please contact your system administrator to review the configuration."
+msgstr "Falten alguns directoris importants. Si us plau, poseu-vos en contacte amb l'administrador del sistema per revisar la configuració."
+
+#: ../html/src/manager/login/messages.tsx:69
+#, fuzzy
+#| msgid "The available disk space on the server is running low. Please contact your system administrator to add more disk space."
+msgid "The available disk space for the database is low. To prevent an automatic shutdown via health check, please contact your system administrator immediately to allocate additional space."
+msgstr "L'espai de disc disponible en el servidor està funcionant baix. Poseu-vos en contacte amb l'administrador del sistema per afegir més espai al disc."
+
+#: ../html/src/manager/login/messages.tsx:74
+#, fuzzy
+#| msgid "The available disk space on the server is critically low. Please contact your system administrator to add more disk space."
+msgid "The available disk space for the database is critically low. To prevent an automatic shutdown via health check, please contact your system administrator immediately to allocate additional space."
+msgstr "L'espai de disc disponible al servidor és críticament baix. Poseu-vos en contacte amb l'administrador del sistema per afegir més espai al disc."
+
+#: ../html/src/manager/login/messages.tsx:89
 msgid "SUSE Multi-Linux Manager PAYG instances must forward registration data to SCC when credentials are provided. Data will be sent independently of the configuration setting. To hide this warning please set 'forward_registration = 1' in rhn.conf."
 msgstr "Les instàncies de SUSE MultiLinux PAYG han de reenviar les dades de registre a SCC quan es proporcionen credencials. Les dades s'enviaran independentment de la configuració. Per ocultar aquest avís, establiu 'registre previ . 1' a rhn.conf."
 
-#: ../html/src/manager/login/messages.tsx:61
+#: ../html/src/manager/login/messages.tsx:99
 msgid "Signing in ..."
 msgstr "S'està iniciant la sessió..."
 
-#: ../html/src/manager/login/susemanager/login.tsx:40
-#: ../html/src/manager/login/uyuni/login.tsx:46
+#: ../html/src/manager/login/susemanager/login.tsx:41
+#: ../html/src/manager/login/uyuni/login.tsx:47
 msgid "Discover a new way of managing your servers, packages, patches and more via one interface."
 msgstr "Descobreix una nova manera de gestionar els teus servidors, paquets, pedaços i més a través d'una interfície."
 
-#: ../html/src/manager/login/susemanager/login.tsx:43
+#: ../html/src/manager/login/susemanager/login.tsx:44
 msgid "<link>Learn more</link> about {productName}."
 msgstr "<link>Més informació</link> sobre {productName}."
 
-#: ../html/src/manager/login/susemanager/login.tsx:86
-#: ../html/src/manager/login/susemanager/login.tsx:112
-#: ../html/src/manager/login/uyuni/login.tsx:58
-#: ../html/src/manager/login/uyuni/login.tsx:104
+#: ../html/src/manager/login/susemanager/login.tsx:87
+#: ../html/src/manager/login/susemanager/login.tsx:113
+#: ../html/src/manager/login/uyuni/login.tsx:59
+#: ../html/src/manager/login/uyuni/login.tsx:105
 msgid "Sign In"
 msgstr "Inicia la sessió"
 
-#: ../html/src/manager/login/susemanager/login.tsx:119
-#: ../html/src/manager/login/uyuni/login.tsx:120
+#: ../html/src/manager/login/susemanager/login.tsx:120
+#: ../html/src/manager/login/uyuni/login.tsx:121
 msgid "{productName} release {versionNumber}"
 msgstr "{productName} publica {versionNumber}"
 
@@ -5078,11 +5151,11 @@ msgstr "Aquest usuari només té accés a l'API de lectura. S'ha denegat l'accé
 msgid "Are you sure you want to close this page while login is in progress?"
 msgstr "Esteu segur que voleu tancar aquesta pàgina mentre l'inici de sessió està en curs?"
 
-#: ../html/src/manager/login/uyuni/login.tsx:48
+#: ../html/src/manager/login/uyuni/login.tsx:49
 msgid "Learn more about {productName}:"
 msgstr "Més informació sobre {productName}:"
 
-#: ../html/src/manager/login/uyuni/login.tsx:52
+#: ../html/src/manager/login/uyuni/login.tsx:53
 msgid "View website"
 msgstr "Mostra el lloc web"
 
@@ -5456,7 +5529,7 @@ msgstr "Fals"
 msgid "Edit YAML"
 msgstr "Edita YAML"
 
-#: ../html/src/manager/minion/ansible/edit-ansible-vars-modal.tsx:65
+#: ../html/src/manager/minion/ansible/edit-ansible-vars-modal.tsx:68
 msgid "Edit variables"
 msgstr "Edita les variables"
 
