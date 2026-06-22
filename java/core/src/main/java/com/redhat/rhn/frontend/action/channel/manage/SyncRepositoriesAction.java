@@ -40,6 +40,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -100,6 +101,12 @@ public class SyncRepositoriesAction extends RhnAction implements Listable<Conten
             }
         }
 
+        // set the list of download strategies
+        List<Map<String, String>> downloadStrategies = new ArrayList<>();
+        addOption(downloadStrategies, "Download all packages", "500");
+        addOption(downloadStrategies, "Client downloads packages from source repository", "800");
+        request.setAttribute("downloadStrategies", downloadStrategies);
+
         Map<String, Object> params = new HashMap<>();
         params.put(RequestContext.CID, chan.getId().toString());
 
@@ -135,6 +142,8 @@ public class SyncRepositoriesAction extends RhnAction implements Listable<Conten
             }
 
             try {
+                csf.setDownloadStrategyId(Integer.parseInt(request.getParameter("download_strategy")));
+
                 String [] lparams = {"noErrata", "latest", "syncKickstart", "fail", "noStrict"};
                 for (String p : lparams) {
                     csf.setFlag(p, request.getParameter(p) != null);
@@ -176,6 +185,7 @@ public class SyncRepositoriesAction extends RhnAction implements Listable<Conten
 
             return getStrutsDelegate().forwardParams(mapping.findForward("success"), Map.of("cid", chan.getId()));
         }
+        request.setAttribute("download_strategy", csf.getDownloadStrategyId());
         request.setAttribute("noErrata", csf.isNoErrata());
         request.setAttribute("noStrict", csf.isNoStrict());
         request.setAttribute("latest", csf.isOnlyLatest());
@@ -282,4 +292,19 @@ public class SyncRepositoriesAction extends RhnAction implements Listable<Conten
             Channel chan = ChannelFactory.lookupByIdAndUser(cid, user);
             return ChannelFactory.lookupContentSources(user.getOrg(), chan);
         }
+
+    /**
+     * Utility function to create options for the dropdown.
+     * @param options list containing all options.
+     * @param key resource bundle key used as the display value.
+     * @param value value to be submitted with form.
+     */
+    private static void addOption(List<Map<String, String>> options, String key,
+            String value) {
+        Map<String, String> selection = new HashMap<>();
+        selection.put("label", key);
+        selection.put("value", value);
+        options.add(selection);
+    }
+
 }

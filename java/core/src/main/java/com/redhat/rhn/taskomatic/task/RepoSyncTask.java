@@ -102,7 +102,7 @@ public class RepoSyncTask extends RhnJavaJob {
             if (csf.isNoStrict()) {
                 params.add("--no-strict");
             }
-            if (csf.getDownloadStrategyId() != null && csf.getDownloadStrategyId() >= 600) {
+            if (csf.getDownloadStrategyId() >= 600) {
                 params.add("--metadata-only");
             }
 

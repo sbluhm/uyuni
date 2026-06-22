@@ -23142,6 +23142,10 @@ given channel.</source>
           <context context-type="sourcefile">/rhn/channels/manage/Edit.do</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="channel.edit.jsp.download_strategy">
+          <source>Download Strategy</source>
+          <target>Download Strategy</target>
+      </trans-unit>
       <trans-unit id="channel.edit.jsp.security.gpg" xml:space="preserve">
         <source>Security: GPG</source>
         <context-group name="ctx">

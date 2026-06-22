@@ -83,6 +83,28 @@
 
         </rl:list>
 
+        <div class="form-group">
+            <label class="col-lg-3 control-label" for="download_strategy">
+                <bean:message key="channel.edit.jsp.download_strategy"/>:
+            </label>
+            <div class="col-lg-6">
+            <select
+                name="download_strategy"
+                id="download_strategy"
+                class="form-control">
+
+                <c:forEach items="${downloadStrategies}" var="strategy">
+                    <option value="${strategy.value}"
+                        <c:if test="${strategy.value == download_strategy.toString()}">
+                            selected="selected"
+                        </c:if>>
+                        ${strategy.label}
+                    </option>
+                </c:forEach>
+            </select>
+	    </div>
+        </div>
+
         <div class="checkbox">
             <label data-bs-toggle="tooltip" title="<bean:message key="channel.manage.sync.nostrict-tt.jsp"/>">
                 <input type="checkbox" name="noStrict" id="noStrict"  <c:if test='${noStrict}'> checked</c:if> />
