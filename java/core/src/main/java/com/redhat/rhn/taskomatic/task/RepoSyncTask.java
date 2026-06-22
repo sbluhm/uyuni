@@ -102,6 +102,9 @@ public class RepoSyncTask extends RhnJavaJob {
             if (csf.isNoStrict()) {
                 params.add("--no-strict");
             }
+            if (csf.getDownloadStrategyId() != null && csf.getDownloadStrategyId() >= 600) {
+                params.add("--metadata-only");
+            }
 
             log.info("Syncing repos for channel: {}", channel.getName());
 

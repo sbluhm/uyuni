@@ -52,6 +52,9 @@ public class ChannelSyncFlag implements Serializable {
     @Column(name = "quit_on_error", nullable = false)
     private boolean quitOnError;
 
+    @Column(name = "download_strategy_id", nullable = true)
+    private Long downloadStrategyId;
+
     // Getters and Setters
 
     public Long getId() {
@@ -100,6 +103,14 @@ public class ChannelSyncFlag implements Serializable {
 
     public void setQuitOnError(boolean flag) {
         this.quitOnError = flag;
+    }
+
+    public Long getDownloadStrategyId() {
+        return downloadStrategyId;
+    }
+
+    public void setDownloadStrategyId(Long id) {
+        this.downloadStrategyId = id;
     }
 
     public Channel getChannel() {
