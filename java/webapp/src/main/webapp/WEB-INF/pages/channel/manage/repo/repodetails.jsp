@@ -106,6 +106,16 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-lg-3 control-label" for="download_strategy">
+                    <bean:message key="channel.edit.jsp.download_strategy"/>:
+                </label>
+                <div class="col-lg-6">
+                    <html:select property="download_strategy" styleId="download_strategy" styleClass="form-control">
+                         <html:options collection="downloadStrategies" property="value" labelProperty="label" />
+                    </html:select>
+                </div>
+            </div>
+            <div class="form-group">
                         <label class="col-lg-3 control-label">
                             <bean:message key="repos.jsp.filters" />
                         </label>

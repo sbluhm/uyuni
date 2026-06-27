@@ -67,7 +67,6 @@ public class CreateChannelCommand {
     protected String gpgKeyFp;
     protected boolean gpgCheck = true;
     protected String checksum;
-    protected int downloadStrategyId = 500;
     protected boolean vendorChannel = false;
 
 
@@ -120,13 +119,6 @@ public class CreateChannelCommand {
      */
     public void setChecksumLabel(String checksumLabelIn) {
         this.checksum = checksumLabelIn;
-    }
-
-    /**
-     * @param downloadStrategyIdIn The download strategy to set.
-     */
-    public void setDownloadStrategyId(int downloadStrategyIdIn) {
-        this.downloadStrategyId = downloadStrategyIdIn;
     }
 
     /**

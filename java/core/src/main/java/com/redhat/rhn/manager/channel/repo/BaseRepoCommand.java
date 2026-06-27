@@ -56,6 +56,7 @@ public abstract class BaseRepoCommand {
     private Set<SslContentSource> sslSetsToAdd = new HashSet<>();
     private Set<SslContentSource> sslSetsToDelete = new HashSet<>();
     private boolean metadataSigned;
+    private int downloadStrategyId = 500;
 
     /**
      * Creates an instance
@@ -137,6 +138,20 @@ public abstract class BaseRepoCommand {
         this.type = typeIn;
     }
 
+    /** 
+     *      
+     * @return download strategy id
+     */ 
+    public int getDownloadStrategyId() {
+        return downloadStrategyId;
+    }
+
+    /**
+     * @param downloadStrategyIdIn The download strategy to set.
+     */
+    public void setDownloadStrategyId(int downloadStrategyIdIn) {
+        this.downloadStrategyId = downloadStrategyIdIn;
+    }
 
     private SslContentSource createSslSet(Long sslCaCertId, Long sslClientCertId, Long sslClientKeyId)
             throws InvalidCertificateException {
