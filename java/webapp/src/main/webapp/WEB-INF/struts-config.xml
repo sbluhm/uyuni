@@ -739,6 +739,7 @@
             <form-property name="sslclientkey" type="java.lang.String"/>
             <form-property name="filters" type="java.lang.String"/>
             <form-property name="metadataSigned" type="java.lang.Boolean"/>
+            <form-property name="downloadStrategyId" type="java.lang.Integer"/>
         </form-bean>
 
         <form-bean name="cobblerSnippetsForm"
@@ -790,7 +791,6 @@
             <form-property name="original_name" type="java.lang.String" />
             <form-property name="original_id" type="java.lang.Long" />
             <form-property name="no_paren_scrub" type="java.lang.String" initial="name, support_policy, summary, description, maintainer_phone, maintainer_name"/>
-            <form-property name="download_strategy" type="java.lang.String" />
         </form-bean>
 
        <form-bean name="channelDeleteForm"

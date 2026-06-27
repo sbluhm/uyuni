@@ -8884,6 +8884,9 @@ Please note that some manual configuration of these scripts may still be require
       <trans-unit id="repos.jsp.create.type" xml:space="preserve">
         <source>Repository Type</source>
       </trans-unit>
+      <trans-unit id="repos.jsp.downloadStrategyId">
+          <source>Download Strategy</source>
+      </trans-unit>
       <trans-unit id="repos.jsp.create.submit" xml:space="preserve">
         <source>Create Repository</source>
       </trans-unit>
@@ -23141,10 +23144,6 @@ given channel.</source>
         <context-group name="ctx">
           <context context-type="sourcefile">/rhn/channels/manage/Edit.do</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="channel.edit.jsp.download_strategy">
-          <source>Download Strategy</source>
-          <target>Download Strategy</target>
       </trans-unit>
       <trans-unit id="channel.edit.jsp.security.gpg" xml:space="preserve">
         <source>Security: GPG</source>

@@ -417,7 +417,7 @@ public class EditChannelAction extends RhnAction implements Listable<OrgTrust> {
             ServerFactory.listMinionsByChannel(updated.getId()).stream()
                     .forEach(ms -> MinionPillarManager.INSTANCE.generatePillar(ms, false, Collections.emptySet()));
 
-	}
+        }
         catch (InvalidGPGFingerprintException borg) {
             errors.add(ActionMessages.GLOBAL_MESSAGE,
                     new ActionMessage("edit.channel.invalidgpgfp"));
