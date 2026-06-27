@@ -86,6 +86,9 @@ public class ContentSource extends BaseDomainHelper implements Identifiable {
     @OneToOne(mappedBy = "contentSource", fetch = FetchType.LAZY)
     private SCCRepositoryAuth repositoryAuth;
 
+    @Column(name = "download_strategy_id", nullable = false)
+    private int downloadStrategyId;
+
     /**
      * Constructor
      */
@@ -197,6 +200,23 @@ public class ContentSource extends BaseDomainHelper implements Identifiable {
     public void setSourceUrl(String sourceUrlIn) {
         this.sourceUrl = sourceUrlIn;
     }
+
+
+    /**
+     * @return Returns the download strategy id.
+     */
+    public int getDownloadStrategyId() {
+        return downloadStrategyId;
+    }
+
+
+    /**
+     * @param downloadStrategyIdIn The download strategy id to set.
+     */
+    public void setDownloadStrategyId(int downloadStrategyIdIn) {
+        this.downloadStrategyId = downloadStrategyIdIn;
+    }
+
 
     /**
      *
