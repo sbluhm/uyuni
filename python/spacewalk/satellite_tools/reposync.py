@@ -593,7 +593,7 @@ class RepoSync(object):
             if excluded_urls is None:
                 excluded_urls = []
             if sources:
-                self.urls = self._format_sources(sources, excluded_urls, repo_type, download_strategy_id)
+                self.urls = self._format_sources(sources, excluded_urls, repo_type)
             else:
                 # generate empty metadata and quit
                 taskomatic.add_to_repodata_queue_for_channel_package_subscription(
@@ -2455,7 +2455,7 @@ class RepoSync(object):
     ### SUSE only code                                                         ###
     ##############################################################################
 
-    def _format_sources(self, sources, excluded_urls, repo_type, download_strategy_id=500):
+    def _format_sources(self, sources, excluded_urls, repo_type):
         ret = []
         for item in sources:
             if item["source_url"] not in excluded_urls:
