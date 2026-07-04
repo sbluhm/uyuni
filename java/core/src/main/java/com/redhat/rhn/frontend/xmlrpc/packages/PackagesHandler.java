@@ -589,6 +589,51 @@ public class PackagesHandler extends BaseHandler {
             pkg.getPath();
         File file = new File(path);
 
+        // If file not present, try to fetch from configured fallback and cache it locally
+	// TODO: only when download strategy = 700?
+	// TODO: Stream in parts
+	// TODO: Concurrency: If concurrent requests may trigger simultaneous fetches, add a per-file lock (e.g., FileChannel.lock() on a dedicated .lock file or synchronized coordination) so only one fetch populates the cache.
+	// TODO: Checksum: Verify with stored checksum
+	// TODO: Permissions: ensure the created file gets correct permissions/ownership consistent with repo files.
+        if (!file.exists()) {
+        // Build remote URL. Ensure DownloadManager.getPackageDownloadPath returns the path part.
+            String remotePath = DownloadManager.getPackageDownloadPath(pkg, loggedInUser);
+            URL remoteUrl = new URL(remotePath);
+            File tmpFile = new File(path + ".part." + ProcessHandle.current().pid());
+            tmpFile.getParentFile().mkdirs();
+            HttpURLConnection conn = null;
+            try (InputStream in = (conn = (HttpURLConnection) remoteUrl.openConnection()).getInputStream();
+                 OutputStream out = new BufferedOutputStream(new FileOutputStream(tmpFile)))
+            {
+                conn.setConnectTimeout(15_000);
+                conn.setReadTimeout(60_000);
+                // stream download
+                byte[] buf = new byte[8192];
+                int r;
+                while ((r = in.read(buf)) != -1) {
+                    out.write(buf, 0, r);
+                }
+                out.flush();
+                // Optional: verify checksum here if available (pkg.getChecksum() etc.)
+                // Atomic move into place
+                Path tmp = tmpFile.toPath();
+                Path dst = file.toPath();
+                try {
+                    Files.move(tmp, dst, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
+                } catch (AtomicMoveNotSupportedException e) {
+                    Files.move(tmp, dst, StandardCopyOption.REPLACE_EXISTING);
+                }
+                // set file mode if needed (optional)
+            } catch (IOException e) {
+                // cleanup partial file on error
+                try { tmpFile.delete(); } catch (Exception ignored) {}
+                // Re-throw or convert into PackageDownloadException used by method
+                throw new PackageDownloadException("api.package.download.ioerror");
+            } finally {
+                if (conn != null) { conn.disconnect(); }
+            }
+        }
+
         if (file.length() > freeMemCoeff * Runtime.getRuntime().freeMemory()) {
             throw new PackageDownloadException("api.package.download.toolarge");
         }
