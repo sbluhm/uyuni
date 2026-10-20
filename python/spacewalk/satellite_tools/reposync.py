@@ -1862,6 +1862,7 @@ class RepoSync(object):
                     # (in memory pressure the batch size is reduced)
                     if mpm_bin_batch and (
                         import_count == to_download_count
+                        or (metadata_only and index == len(to_process) - 1)
                         or len(mpm_bin_batch) % import_batch_size == 0
                         or in_memory_pressure()
                     ):
@@ -1878,6 +1879,7 @@ class RepoSync(object):
 
                     if mpm_src_batch and (
                         import_count == to_download_count
+                        or (metadata_only and index == len(to_process) - 1)
                         or len(mpm_src_batch) % import_batch_size == 0
                         or in_memory_pressure()
                     ):
